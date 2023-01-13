@@ -6,63 +6,42 @@
 #include "pipecrawler/action/crawlaction.hpp"
 #include "pipecrawler/msg/crawlpattern.hpp"
 
+#include "lgs_action_cli.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
+using namespace lgs_ui;
 
-namespace lgs_ui
-{
-class LGSActionClient : public rclcpp::Node
-{
-public:
-  using CrawlAction = pipecrawler::action::Crawlaction;
-  using CrawlGoalHandle = rclcpp_action::ClientGoalHandle<CrawlAction>;
-
-  explicit LGSActionClient(const rclcpp::NodeOptions & options)
-  : Node("lgs_action_client", options)
-  {
-    this->crawl_client_ptr_ = rclcpp_action::create_client<CrawlAction>(
-      this,
-      "fibonacci");
-
-    this->timer_ = this->create_wall_timer(
-      std::chrono::milliseconds(500),
-      std::bind(&LGSActionClient::send_goal, this));
-  }
-
-  void send_goal()
-  {
+void LGSActionClient::send_goal(signed short code){
     using namespace std::placeholders;
 
-    this->timer_->cancel();
-
-    if (!this->crawl_client_ptr_->wait_for_action_server()) {
+    if (!this->crawl_client_ptr_->wait_for_action_server(timeout)) {
       RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
       rclcpp::shutdown();
     }
 
     auto goal_msg = CrawlAction::Goal();
-    // goal_msg.crawlercommand.crawlpattern = [10];
-
+    goal_msg.crawlercommand.crawlpattern = {code};
+    goal_msg.crawlercommand.continuous = false;
     RCLCPP_INFO(this->get_logger(), "Sending goal");
 
     auto send_goal_options = rclcpp_action::Client<CrawlAction>::SendGoalOptions();
     send_goal_options.goal_response_callback =
       std::bind(&LGSActionClient::goal_response_callback, this, _1);
-    // send_goal_options.feedback_callback =
-    //   std::bind(&LGSActionClient::feedback_callback, this, _1, _2);
-    // send_goal_options.result_callback =
-    //   std::bind(&LGSActionClient::result_callback, this, _1);
+    // // send_goal_options.feedback_callback =
+    // //   std::bind(&LGSActionClient::feedback_callback, this, _1, _2);
+    // // send_goal_options.result_callback =
+    // //   std::bind(&LGSActionClient::result_callback, this, _1);
     this->crawl_client_ptr_->async_send_goal(goal_msg, send_goal_options);
   }
 
-private:
-  rclcpp_action::Client<CrawlAction>::SharedPtr crawl_client_ptr_;
-  rclcpp::TimerBase::SharedPtr timer_;
+  LGSActionClient::LGSActionClient(const rclcpp::NodeOptions & options) : Node("lgs_action_client", options)  {
+    this->crawl_client_ptr_ = rclcpp_action::create_client<CrawlAction>(this,"crawl_through_pipe");
+  }
 
-  void goal_response_callback(std::shared_future<CrawlGoalHandle::SharedPtr> future)
-  {
+  // Action Callbacks
+  void LGSActionClient::goal_response_callback(std::shared_future<CrawlGoalHandle::SharedPtr> future)  {
     auto goal_handle = future.get();
     if (!goal_handle) {
       RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
@@ -70,7 +49,6 @@ private:
       RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
     }
   }
-
 //   void feedback_callback(
 //     CrawlGoalHandle::SharedPtr,
 //     const std::shared_ptr<const CrawlAction::Feedback> feedback)
@@ -106,8 +84,12 @@ private:
 //     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
 //     rclcpp::shutdown();
 //   }
-};  // class LGSActionClient
 
+LGSActionClient * LGSActionClient::instance_ = nullptr; 
+
+lgs_ui::LGSActionClient* lgs_ui::LGSActionClient::GetInstance(const rclcpp::NodeOptions & options){
+    if (instance_ == nullptr){
+      instance_ = new LGSActionClient(options); 
+    } 
+      return instance_;
 }
-
-// RCLCPP_COMPONENTS_REGISTER_NODE(lgs_ui::LGSActionClient)

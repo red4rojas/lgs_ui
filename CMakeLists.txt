@@ -28,13 +28,17 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Multimedia Multi
 find_package(pipecrawler REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(PROJECT_SOURCES
-        src/lgs_action_cli.cpp
         src/main.cpp
+        src/lgs_action_cli.cpp
+        src/lgs_action_cli.h
         src/mainwindow.cpp
         src/mainwindow.h
+        src/components/module_button.cpp
+        src/components/module_button.h
 )
 
 add_executable(user_interface ${PROJECT_SOURCES})
@@ -56,6 +60,7 @@ target_link_libraries(user_interface PUBLIC
 ament_target_dependencies(user_interface PUBLIC 
   pipecrawler
   rclcpp
+  rclcpp_action
   std_msgs
 )
 
