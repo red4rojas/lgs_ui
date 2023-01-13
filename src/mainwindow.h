@@ -7,7 +7,6 @@
 #include <QWidget>
 #include <QStatusBar>
 
-
 #include "lgs_action_cli.h"
 #include "components/module_button.h"
 #include "rclcpp/rclcpp.hpp"
@@ -21,7 +20,6 @@ public:
     ~MainWindow();
 
 public slots:
-    void SendIt();
 
 private slots:
 
@@ -29,13 +27,16 @@ protected:
 
 private:
     rclcpp::NodeOptions options_;
-    lgs_ui::LGSActionClient *client_;
-    ModuleButton *testbutton_;
+    ModuleButton *front_grip_button_;
+    ModuleButton *extenders_button_;
+    ModuleButton *back_grip_button_;
     QHBoxLayout *layout_;
     QWidget *widget_;
     QStatusBar *status_bar_;
-    QIcon onIcon;
-    QIcon offIcon;
+    QIcon gripper_on_icon_;
+    QIcon gripper_off_icon_;
+    QIcon extender_on_icon_;
+    QIcon extender_off_icon_;
 };
 
 #endif // MAINWINDOW_H

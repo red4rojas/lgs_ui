@@ -17,6 +17,18 @@ void ModuleButton::SetIcons(QIcon &standby_icon, QIcon &engaged_icon){
     PaintIcon();
 }
 
+void ModuleButton::AssignClient(lgs_ui::LGSActionClient * client){
+    client_ = client;
+}
+
+void ModuleButton::PressButton(){
+    CallClient();
+    ReverseState();
+}
+void ModuleButton::CallClient(){
+    client_->send_goal((short) CurrentSignal());
+}
+
 void ModuleButton::PaintIcon(){
     // engaged_ ? setIcon(*engaged_icon_) : setIcon(*standby_icon_);
     if (engaged_){
@@ -24,11 +36,10 @@ void ModuleButton::PaintIcon(){
     } else {
         setIcon(engaged_icon_);
     }
-    setIconSize(QSize(90, 90));
+    setIconSize(QSize(120, 120));
 }
 
-int ModuleButton::ButtonSignal(){
-    std::cout << "buttonsignal" << std::endl;
+int ModuleButton::CurrentSignal(){
     if (engaged_){
         return off_code_;
     } else {
@@ -37,7 +48,6 @@ int ModuleButton::ButtonSignal(){
 }
 
 void ModuleButton::ReverseState(){
-    std::cout << "reversestate" << std::endl;    
     engaged_ = !engaged_;
     ModuleButton::PaintIcon();
 }
