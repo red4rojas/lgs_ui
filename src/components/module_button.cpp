@@ -1,4 +1,5 @@
 #include "module_button.h"
+#include "../communicator.h"
 
 ModuleButton::ModuleButton(int on_code, int off_code, QWidget *parent):
     QPushButton(parent),
@@ -36,7 +37,7 @@ void ModuleButton::PaintIcon(){
         setIcon(engaged_icon_);
     }
     setIconSize(QSize(120, 120));
-}
+    }
 
 int ModuleButton::CurrentSignal(){
     if (engaged_){

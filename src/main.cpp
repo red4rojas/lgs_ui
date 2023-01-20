@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "control_panel.h"
 #include <QApplication>
 #include "rclcpp/rclcpp.hpp"
 // #include "lgs_action_cli.cpp"

@@ -3,8 +3,8 @@
 #include <memory>
 #include <string>
 #include <sstream>
-#include "pipecrawler/action/crawlaction.hpp"
-#include "pipecrawler/msg/crawlpattern.hpp"
+#include "pipecrawler/action/crawleraction.hpp"
+#include "pipecrawler/msg/crawlercmd.hpp"
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
@@ -18,8 +18,8 @@ namespace lgs_ui
 class LGSActionClient : public rclcpp::Node
 {
 public:
-  using CrawlAction = pipecrawler::action::Crawlaction;
-  using CrawlGoalHandle = rclcpp_action::ClientGoalHandle<CrawlAction>;
+  using CrawlerAction = pipecrawler::action::Crawleraction;
+  using CrawlGoalHandle = rclcpp_action::ClientGoalHandle<CrawlerAction>;
 
   void operator=(const LGSActionClient &) = delete;
   LGSActionClient(LGSActionClient &other) = delete;
@@ -28,8 +28,9 @@ public:
 
   static LGSActionClient* GetInstance(const rclcpp::NodeOptions & options);
   static LGSActionClient * instance_;
+
 private:
-  rclcpp_action::Client<CrawlAction>::SharedPtr crawl_client_ptr_;
+  rclcpp_action::Client<CrawlerAction>::SharedPtr crawl_client_ptr_;
   rclcpp::TimerBase::SharedPtr timer_;
   std::chrono::milliseconds timeout = std::chrono::milliseconds(1000);
 
@@ -38,7 +39,6 @@ private:
   void goal_response_callback(std::shared_future<CrawlGoalHandle::SharedPtr> future);
 //   void feedback_callback()
 //   void result_callback(const CrawlGoalHandle::WrappedResult & result)
-
 };
 }
 // RCLCPP_COMPONENTS_REGISTER_NODE(lgs_ui::LGSActionClient)

@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "control_panel.h"
 #include "lgs_action_cli.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
@@ -15,10 +15,10 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
     back_grip_button_->AssignClient(lgs_ui::LGSActionClient::GetInstance(options_));
     extenders_button_->AssignClient(lgs_ui::LGSActionClient::GetInstance(options_));
     front_grip_button_->AssignClient(lgs_ui::LGSActionClient::GetInstance(options_));
-    gripper_on_icon_ = QIcon("../../../../src/lgs_ui/src/components/icons/gripper_on.PNG");
-    gripper_off_icon_ = QIcon("../../../../src/lgs_ui/src/components/icons/gripper_off.PNG");
-    extender_on_icon_ = QIcon("../../../../src/lgs_ui/src/components/icons/extender_on.PNG");
-    extender_off_icon_ = QIcon("../../../../src/lgs_ui/src/components/icons/extender_off.PNG");
+    gripper_on_icon_ = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/gripper_on.PNG");
+    gripper_off_icon_ = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/gripper_off.PNG");
+    extender_on_icon_ = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/extender_on.PNG");
+    extender_off_icon_ = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/extender_off.PNG");
     back_grip_button_->SetIcons(gripper_on_icon_, gripper_off_icon_);
     extenders_button_->SetIcons(extender_on_icon_, extender_off_icon_);
     front_grip_button_->SetIcons(gripper_on_icon_, gripper_off_icon_);

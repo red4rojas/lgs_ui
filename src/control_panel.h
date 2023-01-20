@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef CONTROLPANEL_H
+#define CONTROLPANEL_H
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -39,4 +39,4 @@ private:
     QIcon extender_off_icon_;
 };
 
-#endif // MAINWINDOW_H
+#endif // CONTROLPANEL_H

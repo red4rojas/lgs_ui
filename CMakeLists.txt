@@ -35,8 +35,9 @@ set(PROJECT_SOURCES
         src/main.cpp
         src/lgs_action_cli.cpp
         src/lgs_action_cli.h
-        src/mainwindow.cpp
-        src/mainwindow.h
+        src/control_panel.cpp
+        src/control_panel.h
+        src/manager.h
         src/components/module_button.cpp
         src/components/module_button.h
 )

@@ -3,9 +3,10 @@
 #include <memory>
 #include <string>
 #include <sstream>
-#include "pipecrawler/action/crawlaction.hpp"
-#include "pipecrawler/msg/crawlpattern.hpp"
+#include "pipecrawler/action/crawleraction.hpp"
+#include "pipecrawler/msg/crawlercmd.hpp"
 
+#include "communicator.h"
 #include "lgs_action_cli.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
@@ -21,23 +22,23 @@ void LGSActionClient::send_goal(signed short code){
       rclcpp::shutdown();
     }
 
-    auto goal_msg = CrawlAction::Goal();
-    goal_msg.crawlercommand.crawlpattern = {code};
-    goal_msg.crawlercommand.continuous = false;
+    auto crawler_goal = CrawlerAction::Goal();
+    crawler_goal.command.pattern = {code};
+    crawler_goal.command.looping = false;
     RCLCPP_INFO(this->get_logger(), "Sending goal");
 
-    auto send_goal_options = rclcpp_action::Client<CrawlAction>::SendGoalOptions();
+    auto send_goal_options = rclcpp_action::Client<CrawlerAction>::SendGoalOptions();
     send_goal_options.goal_response_callback =
       std::bind(&LGSActionClient::goal_response_callback, this, _1);
     // // send_goal_options.feedback_callback =
     // //   std::bind(&LGSActionClient::feedback_callback, this, _1, _2);
     // // send_goal_options.result_callback =
     // //   std::bind(&LGSActionClient::result_callback, this, _1);
-    this->crawl_client_ptr_->async_send_goal(goal_msg, send_goal_options);
+    this->crawl_client_ptr_->async_send_goal(crawler_goal, send_goal_options);
   }
 
   LGSActionClient::LGSActionClient(const rclcpp::NodeOptions & options) : Node("lgs_action_client", options)  {
-    this->crawl_client_ptr_ = rclcpp_action::create_client<CrawlAction>(this,"crawl_through_pipe");
+    this->crawl_client_ptr_ = rclcpp_action::create_client<CrawlerAction>(this,"crawler_action");
   }
 
   // Action Callbacks
