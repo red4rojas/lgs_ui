@@ -1,11 +1,11 @@
 #include "module_button.h"
 
 ModuleButton::ModuleButton(int on_code, int off_code, QWidget *parent):
- QPushButton(parent),
- on_code_{on_code},
- off_code_{off_code}
+    QPushButton(parent),
+    on_code_{on_code},
+    off_code_{off_code}
 {
- engaged_ = false;
+    engaged_ = false;
 }
 
 ModuleButton::~ModuleButton(){
@@ -30,7 +30,6 @@ void ModuleButton::CallClient(){
 }
 
 void ModuleButton::PaintIcon(){
-    // engaged_ ? setIcon(*engaged_icon_) : setIcon(*standby_icon_);
     if (engaged_){
         setIcon(standby_icon_);
     } else {

@@ -2,7 +2,6 @@
 #define MODULEBUTTON_H
 
 #include <QPushButton>
-#include "rclcpp/rclcpp.hpp"
 #include "../lgs_action_cli.h"
 #include "rclcpp_action/rclcpp_action.hpp"
 
@@ -26,8 +25,8 @@ private slots:
 protected:
 
 private:
-    lgs_ui::LGSActionClient * client_;
     void PaintIcon();
+    lgs_ui::LGSActionClient * client_;
     QIcon standby_icon_;
     QIcon engaged_icon_;
     bool engaged_;

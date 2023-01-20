@@ -6,7 +6,6 @@
 #include <QHBoxLayout>
 #include <QWidget>
 
-
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
     setWindowTitle("Lateral Gamma Scanners");
     options_ = rclcpp::NodeOptions ();
