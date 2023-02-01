@@ -9,6 +9,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
+#include <vector>
 
 #ifndef LGSCLI_H
 #define LGSCLI_H
@@ -21,10 +22,11 @@ public:
   using CrawlerAction = pipecrawler::action::Crawleraction;
   using CrawlGoalHandle = rclcpp_action::ClientGoalHandle<CrawlerAction>;
 
-  void operator=(const LGSActionClient &) = delete;
   LGSActionClient(LGSActionClient &other) = delete;
+  void operator=(const LGSActionClient &) = delete;
 
   void send_goal(signed short code);
+  void send_goal(std::vector<signed short> pattern);
 
   static LGSActionClient* GetInstance(const rclcpp::NodeOptions & options);
   static LGSActionClient * instance_;

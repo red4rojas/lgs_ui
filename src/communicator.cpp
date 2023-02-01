@@ -4,4 +4,4 @@
 class manager {
 
 };
-#endif #COMMUNICATOR_H
+#endif //#COMMUNICATOR_H

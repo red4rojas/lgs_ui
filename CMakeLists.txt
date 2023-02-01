@@ -7,16 +7,15 @@ endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(QT6 /home/josue/Qt/6.4.0)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_DIR ${QT6}/gcc_64/lib/cmake/Qt6)
 set(Qt6_DIR ${QT6}/gcc_64/lib/cmake/Qt6)
-set(Qt6CoreTools_DIR ${QT6}/gcc_64/lib/cmake/Qt6CoreTools/)
-set(Qt6GuiTools_DIR ${QT6}/gcc_64/lib/cmake/Qt6GuiTools/)
+# set(Qt6CoreTools_DIR ${QT6}/gcc_64/lib/cmake/Qt6CoreTools/)
+# set(Qt6GuiTools_DIR ${QT6}/gcc_64/lib/cmake/Qt6GuiTools/)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 #set runtime path
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
@@ -24,7 +23,6 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # find dependencies
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
-
 find_package(pipecrawler REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -37,7 +35,8 @@ set(PROJECT_SOURCES
         src/lgs_action_cli.h
         src/control_panel.cpp
         src/control_panel.h
-        src/manager.h
+        src/communicator.h
+        src/communicator.cpp
         src/components/module_button.cpp
         src/components/module_button.h
 )

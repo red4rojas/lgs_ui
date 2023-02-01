@@ -4,4 +4,4 @@
 class manager {
 
 };
-#endif #MANAGER_H
+#endif //#MANAGER_H
