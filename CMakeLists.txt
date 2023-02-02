@@ -52,8 +52,6 @@ target_compile_features(user_interface PUBLIC c_std_99 cxx_std_17)
 target_link_libraries(user_interface PUBLIC
   Qt::Core
   Qt::Gui
-  Qt::Multimedia
-  Qt::MultimediaWidgets
   Qt::Widgets
 )
 
