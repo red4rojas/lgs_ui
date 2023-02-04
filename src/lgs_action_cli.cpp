@@ -5,13 +5,12 @@
 #include <string>
 #include <sstream>
 #include "pipecrawler/action/crawleraction.hpp"
-#include "pipecrawler/msg/crawlercmd.hpp"
+#include "reel/action/reelaction.hpp"
 
 #include "communicator.h"
 #include "lgs_action_cli.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
-#include "rclcpp_components/register_node_macro.hpp"
 
 using namespace lgs_ui;
 
@@ -53,7 +52,6 @@ void LGSActionClient::send_goal(std::vector<signed short> pattern){
     // send_goal_options.result_callback = std::bind(&LGSActionClient::result_callback, this, _1);
     this->crawl_client_ptr_->async_send_goal(crawler_goal, send_goal_options);
 }
-
 
 LGSActionClient::LGSActionClient(const rclcpp::NodeOptions & options) : Node("lgs_action_client", options)  {
   this->crawl_client_ptr_ = rclcpp_action::create_client<CrawlerAction>(this,"crawler_action"); 

@@ -24,6 +24,7 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
 find_package(pipecrawler REQUIRED)
+find_package(reel REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
@@ -57,6 +58,7 @@ target_link_libraries(user_interface PUBLIC
 
 ament_target_dependencies(user_interface PUBLIC 
   pipecrawler
+  reel
   rclcpp
   rclcpp_action
   std_msgs

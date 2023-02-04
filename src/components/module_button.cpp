@@ -63,3 +63,8 @@ void ModuleButton::ReverseState(){
     engaged_ = !engaged_;
     ModuleButton::PaintIcon();
 }
+
+void ModuleButton::SetCommands(Command on, Command off)){
+    
+}
+
