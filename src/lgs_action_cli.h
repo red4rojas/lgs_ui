@@ -25,9 +25,11 @@ public:
 
   LGSActionClient(LGSActionClient &other) = delete;
   void operator=(const LGSActionClient &) = delete;
-
-  void send_goal(signed short code);
-  void send_goal(std::vector<signed short> pattern);
+  void wait_servers();
+  void call_crawler(signed short code);
+  void call_crawler(std::vector<signed short> pattern); 
+  void call_reel(int vel, float interval, bool continous);
+  void pass_command(std::string command);
 
   static LGSActionClient* GetInstance(const rclcpp::NodeOptions & options);
   static LGSActionClient * instance_;

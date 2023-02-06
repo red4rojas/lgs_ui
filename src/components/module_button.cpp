@@ -10,13 +10,14 @@ ModuleButton::ModuleButton(QWidget *parent):
 ModuleButton::~ModuleButton(){
 }
 
-void ModuleButton::SetCodes(int on_code, int off_code){
-    on_code_ = on_code;
-    off_code_ = off_code;
+void ModuleButton::PressButton(){
+    CallClient();
+    ReverseState();
 }
 
-void ModuleButton::SetPattern(std::vector<signed short> pattern){
-    pattern_ = pattern;
+void ModuleButton::SetCommands(Command on_cmd, Command off_cmd){
+    on_cmd_ = on_cmd;
+    off_cmd_ = off_cmd;    
 }
 
 void ModuleButton::SetIcons(QIcon &standby_icon, QIcon &engaged_icon){
@@ -29,21 +30,10 @@ void ModuleButton::AssignClient(lgs_ui::LGSActionClient * client){
     client_ = client;
 }
 
-void ModuleButton::SetSingle(bool is_single_module){
-    single_ = is_single_module;
-}
-void ModuleButton::PressButton(){
-    CallClient();
-    ReverseState();
-}
 void ModuleButton::CallClient(){
-    if (single_){
-        client_->send_goal((short) CurrentSignal());
-    } else {
-        client_->send_goal(pattern_);
-    }
-
+        client_->pass_command(GetCommand());
 }
+
 void ModuleButton::PaintIcon(){
     if (engaged_){
         setIcon(standby_icon_);
@@ -51,20 +41,19 @@ void ModuleButton::PaintIcon(){
         setIcon(engaged_icon_);
     }
     setIconSize(QSize(120, 120));
-    }
-int ModuleButton::CurrentSignal(){
+}
+
+std::string ModuleButton::GetCommand(){
     if (engaged_){
-        return off_code_;
+        return off_cmd_;
     } else {
-        return on_code_;
+        return on_cmd_;
     }
 }
+
 void ModuleButton::ReverseState(){
     engaged_ = !engaged_;
     ModuleButton::PaintIcon();
 }
 
-void ModuleButton::SetCommands(Command on, Command off)){
-    
-}
 

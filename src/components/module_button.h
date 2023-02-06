@@ -13,14 +13,9 @@ public:
     using Command = std::string;
     ModuleButton(QWidget *parent = nullptr);
     ~ModuleButton();
-    int CurrentSignal();
-    void SetIcons(QIcon &standby_icon, QIcon &engaged_icon);
+    void SetCommands(std::string on, std::string off);
     void AssignClient(lgs_ui::LGSActionClient * client);
-    void SetCodes(int on_code = 0, int off_code = 0);
-    void SetPattern(std::vector<signed short> pattern);
-    void SetSingle(bool is_single_module);
-    void SetCommands(Command on, Command off);
-
+    void SetIcons(QIcon &standby_icon, QIcon &engaged_icon);
 
 public slots:
     void PressButton();
@@ -30,22 +25,16 @@ private slots:
 protected:
 
 private:
-    
     void ReverseState();
     void CallClient();
     void PaintIcon();
-    void GetCommands();
+    std::string GetCommand();
     lgs_ui::LGSActionClient * client_;
     QIcon standby_icon_;
     QIcon engaged_icon_;
+    std::string on_cmd_;
+    std::string off_cmd_;
     bool engaged_;
-    bool single_ = true;
-    int on_code_;
-    int off_code_; 
-    Command on_cmd_;
-    Command off_cmd_;
-    
-    std::vector<signed short> pattern_;
 };
 
 #endif // MODULEBUTTON_H
