@@ -33,11 +33,12 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
     auto extender_off_icon = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/extender_off.PNG");
     auto forward_icon = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/forwards.png");
     auto backward_icon = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/backwards.png");
+    auto stop_icon = QIcon("/home/josue/ros2_ws/src/lgs_ui/src/components/icons/stop.png");
     back_grip->SetIcons(gripper_on_icon, gripper_off_icon);
     extenders->SetIcons(extender_on_icon, extender_off_icon);
     front_grip->SetIcons(gripper_on_icon, gripper_off_icon);
-    forward->SetIcons(forward_icon, forward_icon);
-    backward->SetIcons(backward_icon, backward_icon);
+    forward->SetIcons(stop_icon, forward_icon);
+    backward->SetIcons(stop_icon, backward_icon);
     auto statusar = new QStatusBar;
     auto layout = new QHBoxLayout();
     auto widget = new QWidget();

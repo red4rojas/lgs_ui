@@ -32,7 +32,11 @@ void LGSActionClient::call_crawler(std::vector<signed short> pattern){
     crawler_goal.command.pattern = rosidl_runtime_cpp::BoundedVector<int16_t, 6UL, std::allocator<int16_t>>(
       pattern.begin(), pattern.end()
     );
-    crawler_goal.command.looping = false;
+    if (pattern[0] == 0){
+      crawler_goal.command.looping = false;
+    } else {
+      crawler_goal.command.looping = true;
+    }
     auto send_goal_options = rclcpp_action::Client<CrawlerAction>::SendGoalOptions();
     send_goal_options.goal_response_callback = std::bind(&LGSActionClient::goal_response_callback, this, _1);
     // send_goal_options.feedback_callback = std::bind(&LGSActionClient::feedback_callback, this, _1, _2);
@@ -126,7 +130,6 @@ void LGSActionClient::pass_command(std::string command){
   } else {
     RCLCPP_INFO(this->get_logger(), "Ops, invalid command");
   }
-     
 }
 
 void LGSActionClient::wait_servers(){
