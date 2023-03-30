@@ -1,10 +1,8 @@
 #include "module_button.h"
-#include "../communicator.h"
 
-ModuleButton::ModuleButton(QWidget *parent):
-    QPushButton(parent)
-{
+ModuleButton::ModuleButton(QWidget *parent):QPushButton(parent){
     engaged_ = false;
+    publisher_ = Ros::instance()->publisher();
 }
 
 ModuleButton::~ModuleButton(){
@@ -26,12 +24,11 @@ void ModuleButton::SetIcons(QIcon &standby_icon, QIcon &engaged_icon){
     PaintIcon();
 }
 
-void ModuleButton::AssignClient(lgs_ui::LGSActionClient * client){
-    client_ = client;
-}
 
 void ModuleButton::CallClient(){
-        client_->pass_command(GetCommand());
+        auto message = std_msgs::msg::String();
+        message.data = GetCommand();
+        publisher_->publish(message);
 }
 
 void ModuleButton::PaintIcon(){

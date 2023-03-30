@@ -23,23 +23,20 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # find dependencies
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Multimedia MultimediaWidgets Widgets)
-find_package(pipecrawler REQUIRED)
-find_package(reel REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 set(PROJECT_SOURCES
         src/main.cpp
-        src/lgs_action_cli.cpp
-        src/lgs_action_cli.h
-        src/control_panel.cpp
-        src/control_panel.h
-        src/communicator.h
-        src/communicator.cpp
+        src/MainWindow.cpp
+        src/components/crawler_panel.cpp
         src/components/module_button.cpp
-        src/components/module_button.h
+        src/components/ImageView.cpp
+        src/Ros.cpp
 )
 
 add_executable(user_interface ${PROJECT_SOURCES})
@@ -57,12 +54,13 @@ target_link_libraries(user_interface PUBLIC
 )
 
 ament_target_dependencies(user_interface PUBLIC 
-  pipecrawler
-  reel
   rclcpp
   rclcpp_action
   std_msgs
+  sensor_msgs
+  cv_bridge
 )
+
 
 install(TARGETS
   user_interface

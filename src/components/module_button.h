@@ -2,9 +2,9 @@
 #define MODULEBUTTON_H
 
 #include <QPushButton>
-#include "../lgs_action_cli.h"
-#include "rclcpp_action/rclcpp_action.hpp"
+#include "../Ros.h"
 #include <vector>
+#include <memory>
 
 class ModuleButton : public QPushButton{
     Q_OBJECT
@@ -14,7 +14,7 @@ public:
     ModuleButton(QWidget *parent = nullptr);
     ~ModuleButton();
     void SetCommands(std::string on, std::string off);
-    void AssignClient(lgs_ui::LGSActionClient * client);
+    // void AssignNode(Ros * node);
     void SetIcons(QIcon &standby_icon, QIcon &engaged_icon);
 
 public slots:
@@ -29,7 +29,7 @@ private:
     void CallClient();
     void PaintIcon();
     std::string GetCommand();
-    lgs_ui::LGSActionClient * client_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
     QIcon standby_icon_;
     QIcon engaged_icon_;
     std::string on_cmd_;

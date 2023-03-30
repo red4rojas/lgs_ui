@@ -1,15 +1,15 @@
-#include "control_panel.h"
+#include "MainWindow.h"
 #include <QApplication>
 #include "rclcpp/rclcpp.hpp"
-// #include "lgs_action_cli.cpp"
-
+#include "Ros.h"
 
 int main(int argc, char *argv[])
 {
+    Ros ros(argc, argv, "user_interface");
     QApplication a(argc, argv);
-    rclcpp::init(argc, argv) ;
     MainWindow w;
     w.resize(1080,720);
     w.show();
+    ros.spinOnBackground();
     return a.exec();
 }
