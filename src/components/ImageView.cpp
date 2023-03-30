@@ -38,7 +38,6 @@ QRect center(QSize frame, QSize object) {
 
 ImageView::ImageView(QWidget *parent) :
     QWidget(parent) {
-
 }
 
 void ImageView::update(const QString &filename) {

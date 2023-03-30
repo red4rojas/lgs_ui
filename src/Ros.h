@@ -12,10 +12,10 @@
 class Ros : public QObject {
     Q_OBJECT
 public:
-    static Ros *instance(void) { return s_self; }
-    static void quit(void) { s_self->shutdown(); }
     Ros(int argc, char *argv[], const std::string &node_name);
     ~Ros();
+    static Ros *instance(void) { return s_self; }
+    static void quit(void) { s_self->shutdown(); }
     void publishCommand(std::string command);
     void spin(void);
     void spinOnBackground(void);
@@ -23,7 +23,6 @@ public:
     rclcpp::Node::SharedPtr node(void) { return m_node; }
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher(void) {return m_publisher;};
 public slots:
-    void test() {std::cout << "hi" << std::endl;};
 protected:
     void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const;
 private:

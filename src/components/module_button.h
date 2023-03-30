@@ -5,30 +5,27 @@
 #include "../Ros.h"
 #include <vector>
 #include <memory>
-
+#include <iostream>
 class ModuleButton : public QPushButton{
     Q_OBJECT
 
 public:
-    using Command = std::string;
     ModuleButton(QWidget *parent = nullptr);
+    ModuleButton(std::string on, std::string off, QWidget *parent = nullptr);
     ~ModuleButton();
     void SetCommands(std::string on, std::string off);
-    // void AssignNode(Ros * node);
-    void SetIcons(QIcon &standby_icon, QIcon &engaged_icon);
+    void SetIcons();
 
 public slots:
     void PressButton();
-
 private slots:
-
 protected:
-
 private:
     void ReverseState();
-    void CallClient();
+    void PublishCommand();
     void PaintIcon();
     std::string GetCommand();
+private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
     QIcon standby_icon_;
     QIcon engaged_icon_;

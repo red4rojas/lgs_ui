@@ -1,34 +1,54 @@
 #include "module_button.h"
+#include <libgen.h>
+#include <QCoreApplication>
+#include <QDir>
 
 ModuleButton::ModuleButton(QWidget *parent):QPushButton(parent){
     engaged_ = false;
     publisher_ = Ros::instance()->publisher();
+    connect(this, SIGNAL(clicked()), this, SLOT(PressButton()));
+}
+
+ModuleButton::ModuleButton(std::string on_cmd, std::string off_cmd, QWidget *parent):
+    QPushButton(parent),
+    on_cmd_(on_cmd),
+    off_cmd_(off_cmd){
+    engaged_ = false;
+    publisher_ = Ros::instance()->publisher();
+    connect(this, SIGNAL(clicked()), this, SLOT(PressButton()));
+    SetIcons();
 }
 
 ModuleButton::~ModuleButton(){
 }
 
 void ModuleButton::PressButton(){
-    CallClient();
+    PublishCommand();
     ReverseState();
 }
 
-void ModuleButton::SetCommands(Command on_cmd, Command off_cmd){
+void ModuleButton::SetCommands(std::string on_cmd, std::string off_cmd){
     on_cmd_ = on_cmd;
     off_cmd_ = off_cmd;    
 }
 
-void ModuleButton::SetIcons(QIcon &standby_icon, QIcon &engaged_icon){
-    standby_icon_ = standby_icon;
-    engaged_icon_ = engaged_icon;
+void ModuleButton::SetIcons(){
+    QString app_dir = QCoreApplication::applicationDirPath();
+    QString source_path = __FILE__;
+    QString source_relpath = QDir::cleanPath(source_path.remove(app_dir));
+    QString source_dir = QFileInfo(source_relpath).dir().path();
+    QString standby_icon_dir = source_dir;
+    QString engaged_icon_dir = source_dir;
+    standby_icon_ = QIcon(standby_icon_dir.append(QString::fromStdString("/icons/" + off_cmd_ + ".PNG")));
+    engaged_icon_ = QIcon(engaged_icon_dir.append(QString::fromStdString("/icons/" + on_cmd_ + ".PNG")));  
     PaintIcon();
 }
 
 
-void ModuleButton::CallClient(){
-        auto message = std_msgs::msg::String();
-        message.data = GetCommand();
-        publisher_->publish(message);
+void ModuleButton::PublishCommand(){
+    auto message = std_msgs::msg::String();
+    message.data = GetCommand();
+    publisher_->publish(message);
 }
 
 void ModuleButton::PaintIcon(){
@@ -52,5 +72,3 @@ void ModuleButton::ReverseState(){
     engaged_ = !engaged_;
     ModuleButton::PaintIcon();
 }
-
-
