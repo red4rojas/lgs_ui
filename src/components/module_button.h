@@ -3,10 +3,11 @@
 
 #include <QPushButton>
 #include "../Ros.h"
+#include "IWatcher.h"
 #include <vector>
 #include <memory>
 #include <iostream>
-class ModuleButton : public QPushButton{
+class ModuleButton : public QPushButton, public IWatcher{
     Q_OBJECT
 
 public:
@@ -21,6 +22,7 @@ public slots:
 private slots:
 protected:
 private:
+    void Update(const int& signal) override;
     void ReverseState();
     void PublishCommand();
     void PaintIcon();

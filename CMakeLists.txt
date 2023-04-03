@@ -28,6 +28,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
+find_package(lgs_interfaces REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 set(PROJECT_SOURCES
@@ -59,6 +60,7 @@ ament_target_dependencies(user_interface PUBLIC
   std_msgs
   sensor_msgs
   cv_bridge
+  lgs_interfaces
 )
 
 

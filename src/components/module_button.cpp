@@ -16,6 +16,7 @@ ModuleButton::ModuleButton(std::string on_cmd, std::string off_cmd, QWidget *par
     engaged_ = false;
     publisher_ = Ros::instance()->publisher();
     connect(this, SIGNAL(clicked()), this, SLOT(PressButton()));
+    Ros::instance()->addWatcher(this);
     SetIcons();
 }
 
@@ -25,6 +26,9 @@ ModuleButton::~ModuleButton(){
 void ModuleButton::PressButton(){
     PublishCommand();
     ReverseState();
+}
+void ModuleButton::Update(const int& signal){
+    std::cout << signal << std::endl;
 }
 
 void ModuleButton::SetCommands(std::string on_cmd, std::string off_cmd){

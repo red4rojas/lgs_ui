@@ -21,6 +21,10 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_image = m_node->create_subscription<sensor_msgs::msg::Image>("image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback, this, std::placeholders::_1));
+
+    m_state_update = m_node->create_subscription<lgs_interfaces::msg::Crawlerstate>("crawler_state",
+                                                        rclcpp::SystemDefaultsQoS(),
+                                                        std::bind(&Ros::stateCallback, this, std::placeholders::_1));                                                        
     m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
     if (s_self) {
         LOG("Ops, only one instance of 'Ros' can be created!");
@@ -47,14 +51,18 @@ void Ros::spinOnBackground(void) {
     thread.detach();
 }
 
+void Ros::addWatcher(IWatcher * new_watcher) {
+    m_watchers.push_back(new_watcher);
+}
+
 void Ros::shutdown(void) {
     m_executor->cancel();
 }
 
 void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const { 
-    LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
+    // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
     if (msg->encoding != "rgb8") {
-        LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
+        // LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
         cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
         cv::cvtColor(image_in, image_in, cv::COLOR_BGR2RGB);
         if (!image_in.isContinuous() || image_in.elemSize() % 4 != 0) {
@@ -67,6 +75,14 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const {
     } else {
         QImage image(&msg->data[0], msg->width, msg->height, QImage::Format_RGB888);
         MainWindow::instance()->view()->update(image);
+    }
+}
+
+void Ros::stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_state) const { 
+    std::list<IWatcher*>::iterator iterator = m_watchers.begin();
+    while (iterator != m_watchers.end()){
+        (*iterator)->Update(new_state->state[0]);
+        ++iterator;
     }
 }
 
