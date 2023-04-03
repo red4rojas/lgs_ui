@@ -21,7 +21,7 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_image = m_node->create_subscription<sensor_msgs::msg::Image>("image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback, this, std::placeholders::_1));
-    Ros::m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
+    m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
     if (s_self) {
         LOG("Ops, only one instance of 'Ros' can be created!");
         MainWindow::instance()->close();
