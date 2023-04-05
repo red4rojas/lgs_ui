@@ -18,9 +18,12 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_node = rclcpp::Node::make_shared(node_name);
     m_executor->add_node(m_node);
     // Add ROS publisher and subscribers
-    m_image = m_node->create_subscription<sensor_msgs::msg::Image>("image",
+    m_front_im = m_node->create_subscription<sensor_msgs::msg::Image>("image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback, this, std::placeholders::_1));
+    m_reel_im = m_node->create_subscription<sensor_msgs::msg::Image>("reel_image",
+                                                        rclcpp::SystemDefaultsQoS(),
+                                                        std::bind(&Ros::imageCallback2, this, std::placeholders::_1));
 
     m_state_update = m_node->create_subscription<lgs_interfaces::msg::Crawlerstate>("crawler_state",
                                                         rclcpp::SystemDefaultsQoS(),
@@ -71,10 +74,29 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const {
           image_in = aligned_image;
         }
         QImage image(image_in.data, image_in.cols, image_in.rows, QImage::Format_RGB888);
-        MainWindow::instance()->view()->update(image);
+        MainWindow::instance()->view(0)->update(image);
     } else {
         QImage image(&msg->data[0], msg->width, msg->height, QImage::Format_RGB888);
-        MainWindow::instance()->view()->update(image);
+        MainWindow::instance()->view(0)->update(image);
+    }
+}
+
+void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
+    // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
+    if (msg2->encoding != "rgb8") {
+        // LOG("converting from: %s to %s", msg2->encoding.c_str(), "rgb8");
+        cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
+        cv::cvtColor(image_in2, image_in2, cv::COLOR_BGR2RGB);
+        if (!image_in2.isContinuous() || image_in2.elemSize() % 4 != 0) {
+          cv::Mat aligned_image;
+          image_in2.copyTo(aligned_image);
+          image_in2 = aligned_image;
+        }
+        QImage image2(image_in2.data, image_in2.cols, image_in2.rows, QImage::Format_RGB888);
+        MainWindow::instance()->view(1)->update(image2);
+    } else {
+        QImage image2(&msg2->data[0], msg2->width, msg2->height, QImage::Format_RGB888);
+        MainWindow::instance()->view(1)->update(image2);
     }
 }
 
@@ -89,5 +111,5 @@ void Ros::stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_s
 void Ros::publishCommand(std::string command){
   auto message = std_msgs::msg::String();
   message.data = command;
-//   LOG("Publishing Request: %s", command.c_str());
+  LOG("Publishing Request: %s", command.c_str());
 }

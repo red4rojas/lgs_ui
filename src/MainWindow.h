@@ -11,11 +11,11 @@ public:
     static MainWindow *instance() { return s_self; };
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    ImageView *view() { return m_view; }
-
+    ImageView *view(int aux = 0) {return aux ? m_view_2 : m_view;}
 private:
     // Data
     ImageView *m_view;
+    ImageView *m_view_2;
     static MainWindow *s_self;
 };
 

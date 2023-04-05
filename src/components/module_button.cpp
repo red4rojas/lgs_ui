@@ -48,7 +48,6 @@ void ModuleButton::SetIcons(){
     PaintIcon();
 }
 
-
 void ModuleButton::PublishCommand(){
     auto message = std_msgs::msg::String();
     message.data = GetCommand();
