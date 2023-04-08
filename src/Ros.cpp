@@ -82,15 +82,15 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const {
 }
 
 void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
-    // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
+    // LOG("Received Image2: %s %dx%d", msg2->encoding.c_str(), msg2->width, msg2->height);
     if (msg2->encoding != "rgb8") {
         // LOG("converting from: %s to %s", msg2->encoding.c_str(), "rgb8");
         cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
         cv::cvtColor(image_in2, image_in2, cv::COLOR_BGR2RGB);
         if (!image_in2.isContinuous() || image_in2.elemSize() % 4 != 0) {
-          cv::Mat aligned_image;
-          image_in2.copyTo(aligned_image);
-          image_in2 = aligned_image;
+          cv::Mat aligned_image2;
+          image_in2.copyTo(aligned_image2);
+          image_in2 = aligned_image2;
         }
         QImage image2(image_in2.data, image_in2.cols, image_in2.rows, QImage::Format_RGB888);
         MainWindow::instance()->view(1)->update(image2);
@@ -101,10 +101,10 @@ void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const {
 }
 
 void Ros::stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_state) const { 
-    std::list<IWatcher*>::iterator iterator = m_watchers.begin();
-    while (iterator != m_watchers.end()){
-        (*iterator)->Update(new_state->state[0]);
-        ++iterator;
+    std::list<IWatcher*>::iterator watcher = m_watchers.begin();
+    while (watcher != m_watchers.end()){
+        (*watcher)->Update(new_state->state[0]);
+        ++watcher;
     }
 }
 

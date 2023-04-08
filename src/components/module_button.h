@@ -7,14 +7,13 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+
 class ModuleButton : public QPushButton, public IWatcher{
     Q_OBJECT
 
 public:
-    ModuleButton(QWidget *parent = nullptr);
     ModuleButton(std::string on, std::string off, QWidget *parent = nullptr);
     ~ModuleButton();
-    void SetCommands(std::string on, std::string off);
     void SetIcons();
 
 public slots:

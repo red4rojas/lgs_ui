@@ -33,11 +33,10 @@ find_package(sensor_msgs REQUIRED)
 
 set(PROJECT_SOURCES
         src/main.cpp
+        src/Ros.cpp
         src/MainWindow.cpp
-        src/components/crawler_panel.cpp
         src/components/module_button.cpp
         src/components/ImageView.cpp
-        src/Ros.cpp
 )
 
 add_executable(user_interface ${PROJECT_SOURCES})

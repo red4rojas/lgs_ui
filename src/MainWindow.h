@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "components/ImageView.h"
-#include "components/crawler_panel.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT

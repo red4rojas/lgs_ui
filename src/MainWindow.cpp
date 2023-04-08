@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "MainWindow.h"
 #include "Ros.h"
-#include "components/crawler_panel.h"
+#include "components/module_button.h"
 #include <QStatusBar>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -19,7 +19,20 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("Lateral Gamma Scanner");
     m_view = new ImageView;
     m_view_2 = new ImageView;
-    auto crawler_panel = new CrawlerPanel();
+
+    auto front_grip = new ModuleButton(std::string("front_grip_on"), std::string("front_grip_off"));
+    auto back_grip = new ModuleButton(std::string("back_grip_on"), std::string("back_grip_off"));
+    auto extenders = new ModuleButton(std::string("extender_on"), std::string("extender_off"));
+    auto forward = new ModuleButton(std::string("forward"), std::string("stop"));
+    auto backward = new ModuleButton(std::string("backward"), std::string("stop"));
+    auto crawler_layout = new QHBoxLayout();
+    crawler_layout->addWidget(forward);
+    crawler_layout->addWidget(front_grip);
+    crawler_layout->addWidget(extenders);
+    crawler_layout->addWidget(back_grip);
+    crawler_layout->addWidget(backward);
+    auto crawler_panel = new QWidget();
+    crawler_panel->setLayout(crawler_layout);
     auto videos_layout = new QHBoxLayout;
     auto main_layout = new QVBoxLayout();
     auto statusbar = new QStatusBar;

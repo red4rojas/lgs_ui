@@ -3,12 +3,6 @@
 #include <QCoreApplication>
 #include <QDir>
 
-ModuleButton::ModuleButton(QWidget *parent):QPushButton(parent){
-    engaged_ = false;
-    publisher_ = Ros::instance()->publisher();
-    connect(this, SIGNAL(clicked()), this, SLOT(PressButton()));
-}
-
 ModuleButton::ModuleButton(std::string on_cmd, std::string off_cmd, QWidget *parent):
     QPushButton(parent),
     on_cmd_(on_cmd),
@@ -28,12 +22,8 @@ void ModuleButton::PressButton(){
     ReverseState();
 }
 void ModuleButton::Update(const int& signal){
-    std::cout << signal << std::endl;
-}
-
-void ModuleButton::SetCommands(std::string on_cmd, std::string off_cmd){
-    on_cmd_ = on_cmd;
-    off_cmd_ = off_cmd;    
+    // std::cout << signal << std::endl;
+    return;
 }
 
 void ModuleButton::SetIcons(){
