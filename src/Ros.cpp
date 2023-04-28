@@ -18,13 +18,12 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_node = rclcpp::Node::make_shared(node_name);
     m_executor->add_node(m_node);
     // Add ROS publisher and subscribers
-    m_front_im = m_node->create_subscription<sensor_msgs::msg::Image>("image",
+    m_front_im = m_node->create_subscription<sensor_msgs::msg::Image>("reel_image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback, this, std::placeholders::_1));
-    m_reel_im = m_node->create_subscription<sensor_msgs::msg::Image>("reel_image",
+    m_reel_im = m_node->create_subscription<sensor_msgs::msg::Image>("front_image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback2, this, std::placeholders::_1));
-
     m_state_update = m_node->create_subscription<lgs_interfaces::msg::Crawlerstate>("crawler_state",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::stateCallback, this, std::placeholders::_1));                                                        

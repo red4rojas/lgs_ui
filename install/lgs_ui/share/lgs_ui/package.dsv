@@ -1,0 +1,8 @@
+source;share/lgs_ui/hook/cmake_prefix_path.ps1
+source;share/lgs_ui/hook/cmake_prefix_path.dsv
+source;share/lgs_ui/hook/cmake_prefix_path.sh
+source;share/lgs_ui/local_setup.bash
+source;share/lgs_ui/local_setup.dsv
+source;share/lgs_ui/local_setup.ps1
+source;share/lgs_ui/local_setup.sh
+source;share/lgs_ui/local_setup.zsh
