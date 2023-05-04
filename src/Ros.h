@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <memory>
+#include <opencv2/videoio.hpp>
 #include "lgs_interfaces/msg/crawlerstate.hpp"
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
@@ -27,7 +28,7 @@ public:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher(void) {return m_publisher;};
 public slots:
 protected:
-    void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const;
+    void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) ;
     void imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg) const;
     void stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_state) const;
 private:
@@ -39,6 +40,7 @@ private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_publisher;
     inline static std::list<IWatcher *> m_watchers; // inline defines it here:
     static Ros *s_self;
+    cv::VideoWriter m_writer_1;
 };
 
 #endif // NODE_H

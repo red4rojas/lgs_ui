@@ -11,6 +11,14 @@ void kill(int /*sig*/) {
 Ros *Ros::s_self = nullptr;
 
 Ros::Ros(int argc, char *argv[], const std::string &node_name) {
+    if (s_self) {
+        LOG("Ops, only one instance of 'Ros' can be created!");
+        MainWindow::instance()->close();
+    }
+    else {
+        s_self = this; 
+        LOG("Ros created...");
+    }
     // Initilize ROS
     rclcpp::init(argc, argv);
     // Create ROS executer and node
@@ -28,14 +36,10 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::stateCallback, this, std::placeholders::_1));                                                        
     m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
-    if (s_self) {
-        LOG("Ops, only one instance of 'Ros' can be created!");
-        MainWindow::instance()->close();
-    }
-    else {
-        s_self = this; 
-        LOG("Ros created...");
-    }
+    // int fourcc = cv::VideoWriter::fourcc('m', 'p', '4', 'v');
+    // double fps = 30.0;
+    // cv::Size frame_size(320, 240);
+    m_writer_1 = cv::VideoWriter("/home/josue/test.mp4", cv::VideoWriter::fourcc('m', 'p', '4', 'v'), 30, cv::Size(320,240), true);
     signal(SIGINT, kill);
 }
 
@@ -61,11 +65,13 @@ void Ros::shutdown(void) {
     m_executor->cancel();
 }
 
-void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const { 
+void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)  { 
     // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
+    cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
+    // m_writer_1 = cv::VideoWriter("/home/josue/test.mp4", fourcc, fps, frame_size, true);
+    m_writer_1.write(image_in);
     if (msg->encoding != "rgb8") {
         // LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
-        cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
         cv::cvtColor(image_in, image_in, cv::COLOR_BGR2RGB);
         if (!image_in.isContinuous() || image_in.elemSize() % 4 != 0) {
           cv::Mat aligned_image;
@@ -82,9 +88,9 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const {
 
 void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
     // LOG("Received Image2: %s %dx%d", msg2->encoding.c_str(), msg2->width, msg2->height);
+    cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
     if (msg2->encoding != "rgb8") {
         // LOG("converting from: %s to %s", msg2->encoding.c_str(), "rgb8");
-        cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
         cv::cvtColor(image_in2, image_in2, cv::COLOR_BGR2RGB);
         if (!image_in2.isContinuous() || image_in2.elemSize() % 4 != 0) {
           cv::Mat aligned_image2;
