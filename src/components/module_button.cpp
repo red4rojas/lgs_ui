@@ -3,6 +3,9 @@
 #include <QCoreApplication>
 #include <QDir>
 
+// Icon PNG files should be named like the command string of their button
+// my_command.PNG
+
 ModuleButton::ModuleButton(std::string on_cmd, std::string off_cmd, QWidget *parent):
     QPushButton(parent),
     on_cmd_(on_cmd),
@@ -34,7 +37,7 @@ void ModuleButton::SetIcons(){
     QString standby_icon_dir = source_dir;
     QString engaged_icon_dir = source_dir;
     standby_icon_ = QIcon(standby_icon_dir.append(QString::fromStdString("/icons/" + off_cmd_ + ".PNG")));
-    engaged_icon_ = QIcon(engaged_icon_dir.append(QString::fromStdString("/icons/" + on_cmd_ + ".PNG")));  
+    engaged_icon_ = QIcon(engaged_icon_dir.append(QString::fromStdString("/icons/" + on_cmd_ + ".PNG"))); 
     PaintIcon();
 }
 

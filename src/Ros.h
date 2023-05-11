@@ -26,6 +26,8 @@ public:
     void shutdown(void);
     rclcpp::Node::SharedPtr node(void) { return m_node; }
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher(void) {return m_publisher;};
+    void startRecording(std::string filename);
+    void stopRecording(void);
 public slots:
 protected:
     void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) ;
@@ -40,6 +42,7 @@ private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_publisher;
     inline static std::list<IWatcher *> m_watchers; // inline defines it here:
     static Ros *s_self;
+    bool m_recording;
     cv::VideoWriter m_writer_1;
 };
 
