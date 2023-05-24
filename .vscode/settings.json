@@ -77,7 +77,8 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "bit": "cpp",
-        "qvboxlayout": "cpp"
+        "qvboxlayout": "cpp",
+        "qcoreapplication": "cpp"
     },
     "python.analysis.extraPaths": [
         "/home/josue/ros2_ws/install/reel/lib/python3.8/site-packages",

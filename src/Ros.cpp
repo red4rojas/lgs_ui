@@ -28,18 +28,18 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     // Add ROS publisher and subscribers
     m_front_im = m_node->create_subscription<sensor_msgs::msg::Image>("reel_image",
                                                         rclcpp::SystemDefaultsQoS(),
-                                                        std::bind(&Ros::imageCallback, this, std::placeholders::_1));
+                                                        std::bind(&Ros::reelImageCall, this, std::placeholders::_1));
     m_reel_im = m_node->create_subscription<sensor_msgs::msg::Image>("front_image",
                                                         rclcpp::SystemDefaultsQoS(),
-                                                        std::bind(&Ros::imageCallback2, this, std::placeholders::_1));
-    m_state_update = m_node->create_subscription<lgs_interfaces::msg::Crawlerstate>("crawler_state",
+                                                        std::bind(&Ros::frontImageCall, this, std::placeholders::_1));
+    m_state_update = m_node->create_subscription<std_msgs::msg::String>("modules_state",
                                                         rclcpp::SystemDefaultsQoS(),
-                                                        std::bind(&Ros::stateCallback, this, std::placeholders::_1));                                                        
+                                                        std::bind(&Ros::stateCallback, this, std::placeholders::_1));
+    m_bt_update = m_node->create_subscription<std_msgs::msg::String>("bt_status",
+                                                        rclcpp::SystemDefaultsQoS(),
+                                                        std::bind(&Ros::stateCallback, this, std::placeholders::_1));
     m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
-    // int fourcc = cv::VideoWriter::fourcc('m', 'p', '4', 'v');
-    // double fps = 30.0;
-    // cv::Size frame_size(320, 240);
-    m_writer_1 = cv::VideoWriter("/home/josue/test.mp4", cv::VideoWriter::fourcc('m', 'p', '4', 'v'), 30, cv::Size(320,240), true);
+    // m_writer_1 = cv::VideoWriter("/home/josue/test.mp4", cv::VideoWriter::fourcc('m', 'p', 'e','g'), 30, cv::Size(320,240), true);
     m_recording = false;
     signal(SIGINT, kill);
 }
@@ -68,6 +68,7 @@ void Ros::shutdown(void) {
 
 void Ros::startRecording(std::string filename){
     m_writer_1 = cv::VideoWriter(filename, cv::VideoWriter::fourcc('m', 'p', '4', 'v'), 30, cv::Size(320,240), true);
+    // m_writer_1 = cv::VideoWriter(filename, cv::VideoWriter::fourcc('m', 'p','g','1'), 30, cv::Size(320,240), true);
     m_recording = true;
     LOG("Recording Started");
 }
@@ -75,9 +76,10 @@ void Ros::startRecording(std::string filename){
 void Ros::stopRecording(void){
     LOG("Stopped");
     m_recording = false;
+    m_writer_1.release();
 }
 
-void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)  { 
+void Ros::reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg)  { 
     // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
     cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
     if (m_recording) m_writer_1.write(image_in);
@@ -97,7 +99,7 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)  {
     }
 }
 
-void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
+void Ros::frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
     // LOG("Received Image2: %s %dx%d", msg2->encoding.c_str(), msg2->width, msg2->height);
     cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
     if (msg2->encoding != "rgb8") {
@@ -116,10 +118,11 @@ void Ros::imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg2) const {
     }
 }
 
-void Ros::stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_state) const { 
+void Ros::stateCallback(const std_msgs::msg::String::SharedPtr new_state) { 
     std::list<IWatcher*>::iterator watcher = m_watchers.begin();
+    std::string signal = new_state->data;
     while (watcher != m_watchers.end()){
-        (*watcher)->Update(new_state->state[0]);
+        (*watcher)->Update(signal);
         ++watcher;
     }
 }

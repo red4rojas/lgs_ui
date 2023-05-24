@@ -1,9 +1,15 @@
 #include "ImageView.h"
 #include <QPainter>
-
+#include <iostream>
 #include <QDebug>
 #include <QResizeEvent>
+#include <QFileInfo>
+#include <QUrl> 
 #include <QPaintEvent>
+
+ImageView::ImageView(QWidget *parent) :
+    QWidget(parent) {
+}
 
 QImage scale(const QImage &image, QSize size, bool keepAspectioRatio = true) {
     QImage scaled;
@@ -34,19 +40,6 @@ QRect center(QSize frame, QSize object) {
         iw = w;
     }
     return QRect((w-iw)/2, (h-ih)/2, iw, ih);
-}
-
-ImageView::ImageView(QWidget *parent) :
-    QWidget(parent) {
-}
-
-void ImageView::update(const QString &filename) {
-    QImage image;
-    bool ok = image.load(filename);
-    if (!ok)
-        qDebug() << "Ops, image '"<< filename << "' not found!";
-    else
-        update(image);
 }
 
 void ImageView::update(const QImage &image) {

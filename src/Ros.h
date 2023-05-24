@@ -30,15 +30,17 @@ public:
     void stopRecording(void);
 public slots:
 protected:
-    void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) ;
-    void imageCallback2(const sensor_msgs::msg::Image::SharedPtr msg) const;
-    void stateCallback(const lgs_interfaces::msg::Crawlerstate::SharedPtr new_state) const;
+    void reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg) ;
+    void frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg) const;
+    void stateCallback(const std_msgs::msg::String::SharedPtr new_state) ;
+    // void btCallback(const std_msgs::msg::String::SharedPtr new_state) ;
 private:
     rclcpp::executors::StaticSingleThreadedExecutor::SharedPtr m_executor;
     rclcpp::Node::SharedPtr m_node;
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr m_front_im;
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr m_reel_im;
-    rclcpp::Subscription<lgs_interfaces::msg::Crawlerstate>::SharedPtr m_state_update;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr m_state_update;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr m_bt_update;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_publisher;
     inline static std::list<IWatcher *> m_watchers; // inline defines it here:
     static Ros *s_self;

@@ -21,7 +21,7 @@ public slots:
 private slots:
 protected:
 private:
-    void Update(const int& signal) override;
+    void Update(const std::string signal) override;
     void ReverseState();
     void PublishCommand();
     void PaintIcon();

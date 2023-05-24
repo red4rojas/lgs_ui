@@ -1,4 +1,4 @@
-#include "module_button.h"
+#include "ModuleButton.h"
 #include <libgen.h>
 #include <QCoreApplication>
 #include <QDir>
@@ -24,8 +24,14 @@ void ModuleButton::PressButton(){
     PublishCommand();
     ReverseState();
 }
-void ModuleButton::Update(const int& signal){
-    // std::cout << signal << std::endl;
+void ModuleButton::Update(const std::string signal){
+    if (signal == off_cmd_){
+        engaged_ = false;
+        PaintIcon();
+    }else if(signal == on_cmd_){
+        engaged_ = true;
+        PaintIcon();
+    }
     return;
 }
 
