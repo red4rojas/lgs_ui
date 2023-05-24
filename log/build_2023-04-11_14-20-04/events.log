@@ -1,0 +1,292 @@
+[0.000000] (-) TimerEvent: {}
+[0.000579] (lgs_ui) JobQueued: {'identifier': 'lgs_ui', 'dependencies': OrderedDict()}
+[0.000650] (lgs_ui) JobStarted: {'identifier': 'lgs_ui'}
+[0.025996] (lgs_ui) JobProgress: {'identifier': 'lgs_ui', 'progress': 'cmake'}
+[0.026233] (lgs_ui) Command: {'cmd': ['/usr/local/bin/cmake', '/home/josue/ros2_ws/src/lgs_ui', '-DCMAKE_INSTALL_PREFIX=/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui'], 'cwd': '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui', 'env': OrderedDict([('KDE_FULL_SESSION', 'true'), ('USER', 'josue'), ('PAM_KWALLET5_LOGIN', '/run/user/1000/kwallet5.socket'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1553'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('KONSOLE_VERSION', '191203'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/josue/ros2_ws/install/rviz_imu_plugin/lib:/home/josue/ros2_ws/install/reel/lib:/home/josue/ros2_ws/install/pipecrawler/lib:/home/josue/ros2_ws/install/lgs_interfaces/lib:/home/josue/ros2_ws/install/imu_filter_madgwick/lib:/home/josue/ros2_ws/install/fm_interfaces/lib:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('LESS', '-R'), ('HOME', '/home/josue'), ('OLDPWD', '/home/josue/ros2_ws/src/lgs_ui'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('DESKTOP_SESSION', 'plasma'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('LSCOLORS', 'dxFxCxDxBxegedabagacad'), ('ZSH', '/home/josue/.oh-my-zsh'), ('ROS_PYTHON_VERSION', '3'), ('SHELL_SESSION_ID', '5b4094ed29de4250b571e76e31016310'), ('GTK_MODULES', 'gail:atk-bridge'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('KDE_SESSION_VERSION', '5'), ('PAGER', 'less'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('KONSOLE_DBUS_SESSION', '/Sessions/1'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/122/usr/share/code/code'), ('KDED_STARTED_BY_KDEINIT', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('KONSOLE_DBUS_WINDOW', '/Windows/1'), ('COLCON_PREFIX_PATH', '/home/josue/ros2_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'josue'), ('WINDOWID', '85983239'), ('QT_AUTO_SCREEN_SCALE_FACTOR', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('COLORFGBG', '0;15'), ('USER_ZDOTDIR', '/home/josue'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/galactic/bin:/home/josue/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('XCURSOR_THEME', 'Sweet-cursors'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'KDE'), ('VSCODE_INJECTION', '1'), ('XDG_SESSION_DESKTOP', 'KDE'), ('XAUTHORITY', '/run/user/1000/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-046a7efb06.sock'), ('SSH_AUTH_SOCK', '/tmp/ssh-ncayqTi3XnJh/agent.1480'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/122/usr/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '5'), ('AMENT_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/opt/ros/galactic'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'KDE'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('NO_AT_BRIDGE', '1'), ('KONSOLE_DBUS_SERVICE', ':1.437'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('PWD', '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui'), ('CLICOLOR', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings'), ('XDG_DATA_DIRS', '/usr/share/plasma:/usr/local/share/:/usr/share/'), ('ZDOTDIR', '/home/josue'), ('PYTHONPATH', '/home/josue/ros2_ws/install/reel/lib/python3.8/site-packages:/home/josue/ros2_ws/install/pipecrawler/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_state_machine/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_interfaces/lib/python3.8/site-packages:/home/josue/ros2_ws/install/fm_interfaces/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('KDE_SESSION_UID', '1000'), ('COLCON', '1'), ('GITPASS', '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'), ('CMAKE_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/home/josue/ros2_ws/install/fm_interfaces:/opt/ros/galactic')]), 'shell': False}
+[0.099315] (-) TimerEvent: {}
+[0.119706] (lgs_ui) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.184908] (lgs_ui) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.197380] (lgs_ui) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199406] (-) TimerEvent: {}
+[0.251948] (lgs_ui) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.261170] (lgs_ui) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.261649] (lgs_ui) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.262249] (lgs_ui) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.266319] (lgs_ui) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299540] (-) TimerEvent: {}
+[0.335493] (lgs_ui) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.345901] (lgs_ui) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.346412] (lgs_ui) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.347429] (lgs_ui) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.360174] (lgs_ui) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.399662] (-) TimerEvent: {}
+[0.424817] (lgs_ui) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[0.425118] (lgs_ui) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[0.485994] (lgs_ui) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[0.487388] (lgs_ui) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.497271] (lgs_ui) StdoutLine: {'line': b'-- Performing Test HAVE_STDATOMIC\n'}
+[0.499794] (-) TimerEvent: {}
+[0.600175] (-) TimerEvent: {}
+[0.611336] (lgs_ui) StdoutLine: {'line': b'-- Performing Test HAVE_STDATOMIC - Success\n'}
+[0.612838] (lgs_ui) StdoutLine: {'line': b'-- Found WrapAtomic: TRUE  \n'}
+[0.664925] (lgs_ui) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   \n'}
+[0.666281] (lgs_ui) StdoutLine: {'line': b'-- Found WrapOpenGL: TRUE  \n'}
+[0.700306] (-) TimerEvent: {}
+[0.755028] (lgs_ui) StdoutLine: {'line': b'-- Found XKB: /usr/lib/x86_64-linux-gnu/libxkbcommon.so (found suitable version "0.10.0", minimum required is "0.5.0") \n'}
+[0.800427] (-) TimerEvent: {}
+[0.802813] (lgs_ui) StdoutLine: {'line': b'-- Found WrapVulkanHeaders: /usr/include  \n'}
+[0.896857] (lgs_ui) StdoutLine: {'line': b'-- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)\n'}
+[0.900547] (-) TimerEvent: {}
+[0.929049] (lgs_ui) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.929358] (lgs_ui) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.000627] (-) TimerEvent: {}
+[1.025701] (lgs_ui) StdoutLine: {'line': b'-- Found rclcpp: 9.2.2 (/opt/ros/galactic/share/rclcpp/cmake)\n'}
+[1.084349] (lgs_ui) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.093234] (lgs_ui) StdoutLine: {'line': b'-- Found rosidl_adapter: 2.2.3 (/opt/ros/galactic/share/rosidl_adapter/cmake)\n'}
+[1.100761] (-) TimerEvent: {}
+[1.192799] (lgs_ui) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.200886] (-) TimerEvent: {}
+[1.231054] (lgs_ui) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/galactic/include  \n'}
+[1.300991] (-) TimerEvent: {}
+[1.327733] (lgs_ui) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.398095] (lgs_ui) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)\n'}
+[1.401094] (-) TimerEvent: {}
+[1.402771] (lgs_ui) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 0.22.6 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)\n'}
+[1.423129] (lgs_ui) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[1.501258] (-) TimerEvent: {}
+[1.587307] (lgs_ui) StdoutLine: {'line': b'-- Found rclcpp_action: 9.2.2 (/opt/ros/galactic/share/rclcpp_action/cmake)\n'}
+[1.601352] (-) TimerEvent: {}
+[1.663632] (lgs_ui) StdoutLine: {'line': b'-- Found cv_bridge: 3.1.3 (/opt/ros/galactic/share/cv_bridge/cmake)\n'}
+[1.701508] (-) TimerEvent: {}
+[1.797543] (lgs_ui) StdoutLine: {'line': b'-- Found lgs_interfaces: 0.0.0 (/home/josue/ros2_ws/install/lgs_interfaces/share/lgs_interfaces/cmake)\n'}
+[1.801634] (-) TimerEvent: {}
+[1.865565] (lgs_ui) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)\n'}
+[1.901711] (-) TimerEvent: {}
+[1.961560] (lgs_ui) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.987659] (lgs_ui) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.987974] (lgs_ui) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/josue/ros2_ws/src/lgs_ui/include>\n'}
+[1.988075] (lgs_ui) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.001838] (-) TimerEvent: {}
+[2.016038] (lgs_ui) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[2.016326] (lgs_ui) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[2.027178] (lgs_ui) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.057112] (lgs_ui) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.057313] (lgs_ui) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.060736] (lgs_ui) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.062359] (lgs_ui) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.101974] (-) TimerEvent: {}
+[2.131968] (lgs_ui) StdoutLine: {'line': b'-- Generating done\n'}
+[2.134827] (lgs_ui) StdoutLine: {'line': b'-- Build files have been written to: /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui\n'}
+[2.145792] (lgs_ui) CommandEnded: {'returncode': 0}
+[2.147100] (lgs_ui) JobProgress: {'identifier': 'lgs_ui', 'progress': 'build'}
+[2.149730] (lgs_ui) Command: {'cmd': ['/usr/local/bin/cmake', '--build', '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui', '--', '-j8', '-l8'], 'cwd': '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui', 'env': OrderedDict([('KDE_FULL_SESSION', 'true'), ('USER', 'josue'), ('PAM_KWALLET5_LOGIN', '/run/user/1000/kwallet5.socket'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1553'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('KONSOLE_VERSION', '191203'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/josue/ros2_ws/install/rviz_imu_plugin/lib:/home/josue/ros2_ws/install/reel/lib:/home/josue/ros2_ws/install/pipecrawler/lib:/home/josue/ros2_ws/install/lgs_interfaces/lib:/home/josue/ros2_ws/install/imu_filter_madgwick/lib:/home/josue/ros2_ws/install/fm_interfaces/lib:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('LESS', '-R'), ('HOME', '/home/josue'), ('OLDPWD', '/home/josue/ros2_ws/src/lgs_ui'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('DESKTOP_SESSION', 'plasma'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('LSCOLORS', 'dxFxCxDxBxegedabagacad'), ('ZSH', '/home/josue/.oh-my-zsh'), ('ROS_PYTHON_VERSION', '3'), ('SHELL_SESSION_ID', '5b4094ed29de4250b571e76e31016310'), ('GTK_MODULES', 'gail:atk-bridge'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('KDE_SESSION_VERSION', '5'), ('PAGER', 'less'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('KONSOLE_DBUS_SESSION', '/Sessions/1'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/122/usr/share/code/code'), ('KDED_STARTED_BY_KDEINIT', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('KONSOLE_DBUS_WINDOW', '/Windows/1'), ('COLCON_PREFIX_PATH', '/home/josue/ros2_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'josue'), ('WINDOWID', '85983239'), ('QT_AUTO_SCREEN_SCALE_FACTOR', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('COLORFGBG', '0;15'), ('USER_ZDOTDIR', '/home/josue'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/galactic/bin:/home/josue/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('XCURSOR_THEME', 'Sweet-cursors'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'KDE'), ('VSCODE_INJECTION', '1'), ('XDG_SESSION_DESKTOP', 'KDE'), ('XAUTHORITY', '/run/user/1000/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-046a7efb06.sock'), ('SSH_AUTH_SOCK', '/tmp/ssh-ncayqTi3XnJh/agent.1480'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/122/usr/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '5'), ('AMENT_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/opt/ros/galactic'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'KDE'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('NO_AT_BRIDGE', '1'), ('KONSOLE_DBUS_SERVICE', ':1.437'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('PWD', '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui'), ('CLICOLOR', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings'), ('XDG_DATA_DIRS', '/usr/share/plasma:/usr/local/share/:/usr/share/'), ('ZDOTDIR', '/home/josue'), ('PYTHONPATH', '/home/josue/ros2_ws/install/reel/lib/python3.8/site-packages:/home/josue/ros2_ws/install/pipecrawler/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_state_machine/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_interfaces/lib/python3.8/site-packages:/home/josue/ros2_ws/install/fm_interfaces/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('KDE_SESSION_UID', '1000'), ('COLCON', '1'), ('GITPASS', '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'), ('CMAKE_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/home/josue/ros2_ws/install/fm_interfaces:/opt/ros/galactic')]), 'shell': False}
+[2.172735] (lgs_ui) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mAutomatic MOC and UIC for target user_interface\x1b[0m\n'}
+[2.202080] (-) TimerEvent: {}
+[2.302438] (-) TimerEvent: {}
+[2.403319] (-) TimerEvent: {}
+[2.476951] (lgs_ui) StdoutLine: {'line': b'[ 12%] Built target user_interface_autogen\n'}
+[2.490861] (lgs_ui) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/src/Ros.cpp.o\x1b[0m\n'}
+[2.491218] (lgs_ui) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/src/main.cpp.o\x1b[0m\n'}
+[2.491444] (lgs_ui) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/src/MainWindow.cpp.o\x1b[0m\n'}
+[2.491633] (lgs_ui) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/user_interface_autogen/mocs_compilation.cpp.o\x1b[0m\n'}
+[2.491811] (lgs_ui) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/src/components/module_button.cpp.o\x1b[0m\n'}
+[2.492154] (lgs_ui) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding CXX object CMakeFiles/user_interface.dir/src/components/ImageView.cpp.o\x1b[0m\n'}
+[2.503415] (-) TimerEvent: {}
+[2.603771] (-) TimerEvent: {}
+[2.704190] (-) TimerEvent: {}
+[2.804718] (-) TimerEvent: {}
+[2.906375] (-) TimerEvent: {}
+[3.006721] (-) TimerEvent: {}
+[3.107560] (-) TimerEvent: {}
+[3.209954] (-) TimerEvent: {}
+[3.310735] (-) TimerEvent: {}
+[3.411449] (-) TimerEvent: {}
+[3.511810] (-) TimerEvent: {}
+[3.612169] (-) TimerEvent: {}
+[3.712533] (-) TimerEvent: {}
+[3.814727] (-) TimerEvent: {}
+[3.915115] (-) TimerEvent: {}
+[4.015816] (-) TimerEvent: {}
+[4.116634] (-) TimerEvent: {}
+[4.217344] (-) TimerEvent: {}
+[4.318028] (-) TimerEvent: {}
+[4.418723] (-) TimerEvent: {}
+[4.520004] (-) TimerEvent: {}
+[4.621484] (-) TimerEvent: {}
+[4.722881] (-) TimerEvent: {}
+[4.827498] (-) TimerEvent: {}
+[4.927872] (-) TimerEvent: {}
+[5.028256] (-) TimerEvent: {}
+[5.128619] (-) TimerEvent: {}
+[5.229780] (-) TimerEvent: {}
+[5.331739] (-) TimerEvent: {}
+[5.434089] (-) TimerEvent: {}
+[5.534497] (-) TimerEvent: {}
+[5.634909] (-) TimerEvent: {}
+[5.735271] (-) TimerEvent: {}
+[5.835563] (-) TimerEvent: {}
+[5.935968] (-) TimerEvent: {}
+[6.037268] (-) TimerEvent: {}
+[6.137636] (-) TimerEvent: {}
+[6.237986] (-) TimerEvent: {}
+[6.340402] (-) TimerEvent: {}
+[6.440750] (-) TimerEvent: {}
+[6.541099] (-) TimerEvent: {}
+[6.641492] (-) TimerEvent: {}
+[6.741854] (-) TimerEvent: {}
+[6.842310] (-) TimerEvent: {}
+[6.942652] (-) TimerEvent: {}
+[7.043033] (-) TimerEvent: {}
+[7.144032] (-) TimerEvent: {}
+[7.247479] (-) TimerEvent: {}
+[7.348054] (-) TimerEvent: {}
+[7.451625] (-) TimerEvent: {}
+[7.552871] (-) TimerEvent: {}
+[7.655286] (-) TimerEvent: {}
+[7.755797] (-) TimerEvent: {}
+[7.856492] (-) TimerEvent: {}
+[7.903054] (lgs_ui) StderrLine: {'line': b'\x1b[01m\x1b[K/home/josue/ros2_ws/src/lgs_ui/src/components/module_button.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void ModuleButton::Update(const int&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.903345] (lgs_ui) StderrLine: {'line': b'\x1b[01m\x1b[K/home/josue/ros2_ws/src/lgs_ui/src/components/module_button.cpp:24:38:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Ksignal\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[7.903509] (lgs_ui) StderrLine: {'line': b'   24 | void ModuleButton::Update(\x1b[01;35m\x1b[Kconst int& signal\x1b[m\x1b[K){\n'}
+[7.903635] (lgs_ui) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[7.956605] (-) TimerEvent: {}
+[8.057004] (-) TimerEvent: {}
+[8.157369] (-) TimerEvent: {}
+[8.257711] (-) TimerEvent: {}
+[8.358070] (-) TimerEvent: {}
+[8.458434] (-) TimerEvent: {}
+[8.559097] (-) TimerEvent: {}
+[8.660039] (-) TimerEvent: {}
+[8.760700] (-) TimerEvent: {}
+[8.861084] (-) TimerEvent: {}
+[8.961506] (-) TimerEvent: {}
+[9.061880] (-) TimerEvent: {}
+[9.162203] (-) TimerEvent: {}
+[9.262557] (-) TimerEvent: {}
+[9.362866] (-) TimerEvent: {}
+[9.463313] (-) TimerEvent: {}
+[9.564011] (-) TimerEvent: {}
+[9.664454] (-) TimerEvent: {}
+[9.764761] (-) TimerEvent: {}
+[9.865125] (-) TimerEvent: {}
+[9.965484] (-) TimerEvent: {}
+[10.065754] (-) TimerEvent: {}
+[10.166102] (-) TimerEvent: {}
+[10.266442] (-) TimerEvent: {}
+[10.366733] (-) TimerEvent: {}
+[10.467022] (-) TimerEvent: {}
+[10.567317] (-) TimerEvent: {}
+[10.667588] (-) TimerEvent: {}
+[10.768035] (-) TimerEvent: {}
+[10.868404] (-) TimerEvent: {}
+[10.968695] (-) TimerEvent: {}
+[11.068981] (-) TimerEvent: {}
+[11.169269] (-) TimerEvent: {}
+[11.269580] (-) TimerEvent: {}
+[11.369874] (-) TimerEvent: {}
+[11.470152] (-) TimerEvent: {}
+[11.570439] (-) TimerEvent: {}
+[11.670868] (-) TimerEvent: {}
+[11.771242] (-) TimerEvent: {}
+[11.871531] (-) TimerEvent: {}
+[11.971837] (-) TimerEvent: {}
+[12.072113] (-) TimerEvent: {}
+[12.172386] (-) TimerEvent: {}
+[12.272667] (-) TimerEvent: {}
+[12.372968] (-) TimerEvent: {}
+[12.473272] (-) TimerEvent: {}
+[12.573629] (-) TimerEvent: {}
+[12.673888] (-) TimerEvent: {}
+[12.774196] (-) TimerEvent: {}
+[12.874461] (-) TimerEvent: {}
+[12.974755] (-) TimerEvent: {}
+[13.075041] (-) TimerEvent: {}
+[13.175324] (-) TimerEvent: {}
+[13.275607] (-) TimerEvent: {}
+[13.375883] (-) TimerEvent: {}
+[13.476169] (-) TimerEvent: {}
+[13.576465] (-) TimerEvent: {}
+[13.676803] (-) TimerEvent: {}
+[13.777083] (-) TimerEvent: {}
+[13.877369] (-) TimerEvent: {}
+[13.977637] (-) TimerEvent: {}
+[14.077883] (-) TimerEvent: {}
+[14.178151] (-) TimerEvent: {}
+[14.278423] (-) TimerEvent: {}
+[14.378693] (-) TimerEvent: {}
+[14.478980] (-) TimerEvent: {}
+[14.579247] (-) TimerEvent: {}
+[14.679570] (-) TimerEvent: {}
+[14.779820] (-) TimerEvent: {}
+[14.880089] (-) TimerEvent: {}
+[14.980347] (-) TimerEvent: {}
+[15.080693] (-) TimerEvent: {}
+[15.181373] (-) TimerEvent: {}
+[15.281637] (-) TimerEvent: {}
+[15.381925] (-) TimerEvent: {}
+[15.482227] (-) TimerEvent: {}
+[15.582497] (-) TimerEvent: {}
+[15.682785] (-) TimerEvent: {}
+[15.783065] (-) TimerEvent: {}
+[15.883329] (-) TimerEvent: {}
+[15.983600] (-) TimerEvent: {}
+[16.083950] (-) TimerEvent: {}
+[16.184248] (-) TimerEvent: {}
+[16.284583] (-) TimerEvent: {}
+[16.384930] (-) TimerEvent: {}
+[16.485253] (-) TimerEvent: {}
+[16.585609] (-) TimerEvent: {}
+[16.685896] (-) TimerEvent: {}
+[16.786178] (-) TimerEvent: {}
+[16.886489] (-) TimerEvent: {}
+[16.974574] (lgs_ui) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable user_interface\x1b[0m\n'}
+[16.986592] (-) TimerEvent: {}
+[17.086900] (-) TimerEvent: {}
+[17.187256] (-) TimerEvent: {}
+[17.287672] (-) TimerEvent: {}
+[17.388013] (-) TimerEvent: {}
+[17.488378] (-) TimerEvent: {}
+[17.588762] (-) TimerEvent: {}
+[17.689094] (-) TimerEvent: {}
+[17.789496] (-) TimerEvent: {}
+[17.889813] (-) TimerEvent: {}
+[17.990152] (-) TimerEvent: {}
+[18.090512] (-) TimerEvent: {}
+[18.190851] (-) TimerEvent: {}
+[18.291196] (-) TimerEvent: {}
+[18.391486] (-) TimerEvent: {}
+[18.491757] (-) TimerEvent: {}
+[18.592060] (-) TimerEvent: {}
+[18.692387] (-) TimerEvent: {}
+[18.792676] (-) TimerEvent: {}
+[18.893001] (-) TimerEvent: {}
+[18.993302] (-) TimerEvent: {}
+[19.093632] (-) TimerEvent: {}
+[19.193960] (-) TimerEvent: {}
+[19.294268] (-) TimerEvent: {}
+[19.300982] (lgs_ui) StdoutLine: {'line': b'[100%] Built target user_interface\n'}
+[19.306547] (lgs_ui) CommandEnded: {'returncode': 0}
+[19.342103] (lgs_ui) JobProgress: {'identifier': 'lgs_ui', 'progress': 'install'}
+[19.348008] (lgs_ui) Command: {'cmd': ['/usr/local/bin/cmake', '--install', '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui'], 'cwd': '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui', 'env': OrderedDict([('KDE_FULL_SESSION', 'true'), ('USER', 'josue'), ('PAM_KWALLET5_LOGIN', '/run/user/1000/kwallet5.socket'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1553'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('KONSOLE_VERSION', '191203'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/josue/ros2_ws/install/rviz_imu_plugin/lib:/home/josue/ros2_ws/install/reel/lib:/home/josue/ros2_ws/install/pipecrawler/lib:/home/josue/ros2_ws/install/lgs_interfaces/lib:/home/josue/ros2_ws/install/imu_filter_madgwick/lib:/home/josue/ros2_ws/install/fm_interfaces/lib:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('LESS', '-R'), ('HOME', '/home/josue'), ('OLDPWD', '/home/josue/ros2_ws/src/lgs_ui'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('DESKTOP_SESSION', 'plasma'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('LSCOLORS', 'dxFxCxDxBxegedabagacad'), ('ZSH', '/home/josue/.oh-my-zsh'), ('ROS_PYTHON_VERSION', '3'), ('SHELL_SESSION_ID', '5b4094ed29de4250b571e76e31016310'), ('GTK_MODULES', 'gail:atk-bridge'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('KDE_SESSION_VERSION', '5'), ('PAGER', 'less'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/122/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('KONSOLE_DBUS_SESSION', '/Sessions/1'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/122/usr/share/code/code'), ('KDED_STARTED_BY_KDEINIT', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('KONSOLE_DBUS_WINDOW', '/Windows/1'), ('COLCON_PREFIX_PATH', '/home/josue/ros2_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'josue'), ('WINDOWID', '85983239'), ('QT_AUTO_SCREEN_SCALE_FACTOR', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('COLORFGBG', '0;15'), ('USER_ZDOTDIR', '/home/josue'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/galactic/bin:/home/josue/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('XCURSOR_THEME', 'Sweet-cursors'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'KDE'), ('VSCODE_INJECTION', '1'), ('XDG_SESSION_DESKTOP', 'KDE'), ('XAUTHORITY', '/run/user/1000/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-046a7efb06.sock'), ('SSH_AUTH_SOCK', '/tmp/ssh-ncayqTi3XnJh/agent.1480'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/122/usr/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '5'), ('AMENT_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/opt/ros/galactic'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'KDE'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('NO_AT_BRIDGE', '1'), ('KONSOLE_DBUS_SERVICE', ':1.437'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('PWD', '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui'), ('CLICOLOR', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings'), ('XDG_DATA_DIRS', '/usr/share/plasma:/usr/local/share/:/usr/share/'), ('ZDOTDIR', '/home/josue'), ('PYTHONPATH', '/home/josue/ros2_ws/install/reel/lib/python3.8/site-packages:/home/josue/ros2_ws/install/pipecrawler/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_state_machine/lib/python3.8/site-packages:/home/josue/ros2_ws/install/lgs_interfaces/lib/python3.8/site-packages:/home/josue/ros2_ws/install/fm_interfaces/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('KDE_SESSION_UID', '1000'), ('COLCON', '1'), ('GITPASS', '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'), ('CMAKE_PREFIX_PATH', '/home/josue/ros2_ws/install/tether_tracker:/home/josue/ros2_ws/install/synchronizer:/home/josue/ros2_ws/install/imu_tools:/home/josue/ros2_ws/install/rviz_imu_plugin:/home/josue/ros2_ws/install/reel:/home/josue/ros2_ws/install/pipecrawler:/home/josue/ros2_ws/install/lgs_ui:/home/josue/ros2_ws/install/lgs_interfaces:/home/josue/ros2_ws/install/imu_filter_madgwick:/home/josue/ros2_ws/install/imu_complementary_filter:/home/josue/ros2_ws/install/image_view:/home/josue/ros2_ws/install/fm_odometry:/home/josue/ros2_ws/install/fm_interfaces:/opt/ros/galactic')]), 'shell': False}
+[19.352125] (lgs_ui) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[19.352474] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/lib/lgs_ui/user_interface\n'}
+[19.357335] (lgs_ui) StdoutLine: {'line': b'-- Set runtime path of "/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/lib/lgs_ui/user_interface" to "/opt/ros/galactic/lib:/home/josue/ros2_ws/install/lgs_interfaces/lib:/home/josue/Qt/6.4.0/gcc_64/lib"\n'}
+[19.357701] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/package_run_dependencies/lgs_ui\n'}
+[19.357937] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/parent_prefix_path/lgs_ui\n'}
+[19.358154] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/ament_prefix_path.sh\n'}
+[19.358245] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/ament_prefix_path.dsv\n'}
+[19.358314] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/path.sh\n'}
+[19.358478] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/path.dsv\n'}
+[19.358547] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.bash\n'}
+[19.358610] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.sh\n'}
+[19.358707] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.zsh\n'}
+[19.358805] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.dsv\n'}
+[19.358902] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/package.dsv\n'}
+[19.359023] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/packages/lgs_ui\n'}
+[19.359170] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/cmake/lgs_uiConfig.cmake\n'}
+[19.359281] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/cmake/lgs_uiConfig-version.cmake\n'}
+[19.359418] (lgs_ui) StdoutLine: {'line': b'-- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/package.xml\n'}
+[19.360622] (lgs_ui) CommandEnded: {'returncode': 0}
+[19.394418] (-) TimerEvent: {}
+[19.426304] (lgs_ui) JobEnded: {'identifier': 'lgs_ui', 'rc': 0}
+[19.427104] (-) EventReactorShutdown: {}

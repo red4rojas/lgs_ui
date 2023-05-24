@@ -1,0 +1,91 @@
+[0.026s] Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake /home/josue/ros2_ws/src/lgs_ui -DCMAKE_INSTALL_PREFIX=/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui
+[0.119s] -- The C compiler identification is GNU 9.4.0
+[0.184s] -- The CXX compiler identification is GNU 9.4.0
+[0.197s] -- Detecting C compiler ABI info
+[0.251s] -- Detecting C compiler ABI info - done
+[0.261s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.261s] -- Detecting C compile features
+[0.262s] -- Detecting C compile features - done
+[0.266s] -- Detecting CXX compiler ABI info
+[0.335s] -- Detecting CXX compiler ABI info - done
+[0.345s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.346s] -- Detecting CXX compile features
+[0.347s] -- Detecting CXX compile features - done
+[0.360s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.424s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.425s] -- Check if compiler accepts -pthread
+[0.485s] -- Check if compiler accepts -pthread - yes
+[0.487s] -- Found Threads: TRUE  
+[0.497s] -- Performing Test HAVE_STDATOMIC
+[0.611s] -- Performing Test HAVE_STDATOMIC - Success
+[0.612s] -- Found WrapAtomic: TRUE  
+[0.664s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[0.666s] -- Found WrapOpenGL: TRUE  
+[0.755s] -- Found XKB: /usr/lib/x86_64-linux-gnu/libxkbcommon.so (found suitable version "0.10.0", minimum required is "0.5.0") 
+[0.802s] -- Found WrapVulkanHeaders: /usr/include  
+[0.897s] -- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)
+[0.929s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.929s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.025s] -- Found rclcpp: 9.2.2 (/opt/ros/galactic/share/rclcpp/cmake)
+[1.084s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.093s] -- Found rosidl_adapter: 2.2.3 (/opt/ros/galactic/share/rosidl_adapter/cmake)
+[1.192s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.231s] -- Found FastRTPS: /opt/ros/galactic/include  
+[1.327s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.398s] -- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)
+[1.402s] -- Found rmw_cyclonedds_cpp: 0.22.6 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)
+[1.423s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.587s] -- Found rclcpp_action: 9.2.2 (/opt/ros/galactic/share/rclcpp_action/cmake)
+[1.663s] -- Found cv_bridge: 3.1.3 (/opt/ros/galactic/share/cv_bridge/cmake)
+[1.797s] -- Found lgs_interfaces: 0.0.0 (/home/josue/ros2_ws/install/lgs_interfaces/share/lgs_interfaces/cmake)
+[1.865s] -- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)
+[1.961s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.987s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.987s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/josue/ros2_ws/src/lgs_ui/include>
+[1.987s] -- Configured cppcheck exclude dirs and/or files: 
+[2.016s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.016s] -- Configured cpplint exclude dirs and/or files: 
+[2.027s] -- Added test 'lint_cmake' to check CMake code style
+[2.057s] -- Added test 'uncrustify' to check C / C++ code style
+[2.057s] -- Configured uncrustify additional arguments: 
+[2.060s] -- Added test 'xmllint' to check XML markup files
+[2.062s] -- Configuring done
+[2.131s] -- Generating done
+[2.134s] -- Build files have been written to: /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui
+[2.145s] Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake /home/josue/ros2_ws/src/lgs_ui -DCMAKE_INSTALL_PREFIX=/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui
+[2.150s] Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --build /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui -- -j8 -l8
+[2.172s] [ 12%] [34m[1mAutomatic MOC and UIC for target user_interface[0m
+[2.476s] [ 12%] Built target user_interface_autogen
+[2.490s] [ 37%] [32mBuilding CXX object CMakeFiles/user_interface.dir/src/Ros.cpp.o[0m
+[2.491s] [ 37%] [32mBuilding CXX object CMakeFiles/user_interface.dir/src/main.cpp.o[0m
+[2.491s] [ 50%] [32mBuilding CXX object CMakeFiles/user_interface.dir/src/MainWindow.cpp.o[0m
+[2.491s] [ 62%] [32mBuilding CXX object CMakeFiles/user_interface.dir/user_interface_autogen/mocs_compilation.cpp.o[0m
+[2.491s] [ 75%] [32mBuilding CXX object CMakeFiles/user_interface.dir/src/components/module_button.cpp.o[0m
+[2.492s] [ 87%] [32mBuilding CXX object CMakeFiles/user_interface.dir/src/components/ImageView.cpp.o[0m
+[7.903s] [01m[K/home/josue/ros2_ws/src/lgs_ui/src/components/module_button.cpp:[m[K In member function ‘[01m[Kvirtual void ModuleButton::Update(const int&)[m[K’:
+[7.903s] [01m[K/home/josue/ros2_ws/src/lgs_ui/src/components/module_button.cpp:24:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ksignal[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[7.903s]    24 | void ModuleButton::Update([01;35m[Kconst int& signal[m[K){
+[7.903s]       |                           [01;35m[K~~~~~~~~~~~^~~~~~[m[K
+[16.974s] [100%] [32m[1mLinking CXX executable user_interface[0m
+[19.300s] [100%] Built target user_interface
+[19.306s] Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --build /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui -- -j8 -l8
+[19.348s] Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --install /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui
+[19.352s] -- Install configuration: ""
+[19.352s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/lib/lgs_ui/user_interface
+[19.357s] -- Set runtime path of "/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/lib/lgs_ui/user_interface" to "/opt/ros/galactic/lib:/home/josue/ros2_ws/install/lgs_interfaces/lib:/home/josue/Qt/6.4.0/gcc_64/lib"
+[19.357s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/package_run_dependencies/lgs_ui
+[19.357s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/parent_prefix_path/lgs_ui
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/ament_prefix_path.sh
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/ament_prefix_path.dsv
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/path.sh
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/environment/path.dsv
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.bash
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.sh
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.zsh
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/local_setup.dsv
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/package.dsv
+[19.358s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/ament_index/resource_index/packages/lgs_ui
+[19.359s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/cmake/lgs_uiConfig.cmake
+[19.359s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/cmake/lgs_uiConfig-version.cmake
+[19.359s] -- Installing: /home/josue/ros2_ws/src/lgs_ui/install/lgs_ui/share/lgs_ui/package.xml
+[19.361s] Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --install /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui

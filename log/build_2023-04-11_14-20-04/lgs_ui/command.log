@@ -1,0 +1,6 @@
+Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake /home/josue/ros2_ws/src/lgs_ui -DCMAKE_INSTALL_PREFIX=/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui
+Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake /home/josue/ros2_ws/src/lgs_ui -DCMAKE_INSTALL_PREFIX=/home/josue/ros2_ws/src/lgs_ui/install/lgs_ui
+Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --build /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui -- -j8 -l8
+Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --build /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui -- -j8 -l8
+Invoking command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --install /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui
+Invoked command in '/home/josue/ros2_ws/src/lgs_ui/build/lgs_ui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/local/bin/cmake --install /home/josue/ros2_ws/src/lgs_ui/build/lgs_ui
