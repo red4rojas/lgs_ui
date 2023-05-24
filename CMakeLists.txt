@@ -38,7 +38,7 @@ set(PROJECT_SOURCES
         src/components/ModuleButton.cpp
         src/components/ImageView.cpp
         src/components/StatusBar.cpp
-        src/components/MediaView.cpp
+        # src/components/MediaView.cpp
         src/components/BTVisualizer.cpp
 )
 

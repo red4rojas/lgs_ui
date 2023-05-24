@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "components/ImageView.h"
-#include "components/MediaView.h"
 #include "components/StatusBar.h"
 #include <QListWidget>
 #include <QPushButton>
@@ -28,8 +27,6 @@ private:
     QString media_path;
     ImageView *m_view;
     ImageView *m_view_2;
-    MediaView *m_player;
-    MediaView *m_player_2;
     static MainWindow *s_self;
     QListWidget *video_list;
     StatusBar  *m_statusbar;

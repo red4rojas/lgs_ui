@@ -8,7 +8,6 @@
 #include <QHBoxLayout>
 #include <QStackedWidget>
 #include <QDockWidget>
-#include <QMediaPlayer>
 #include <QLabel>
 #include <QDateTime>
 #include <QTabWidget>
@@ -62,19 +61,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     current_inspection_tab->setLayout(current_inspection_layout);
 
     //Past Inspections tab
-    m_player = new MediaView;
+    // m_player = new MediaView;
     video_list = new QListWidget();
     video_list->setMaximumWidth(200);
     auto past_inspection_tab = new QWidget();
     auto past_inspections_layout = new QHBoxLayout();
-    past_inspections_layout->addWidget(m_player);
-    past_inspections_layout->addWidget(video_list);
-    past_inspection_tab->setLayout(past_inspections_layout);
+    // past_inspections_layout->addWidget(m_player);
+    // past_inspections_layout->addWidget(video_list);
+    // past_inspection_tab->setLayout(past_inspections_layout);
 
     //Central Widget
     auto tab_widget = new QTabWidget;
     tab_widget->insertTab(0, current_inspection_tab, "Current Inspection");
-    tab_widget->insertTab(1, past_inspection_tab, "Past Inspections");
+    // tab_widget->insertTab(1, past_inspection_tab, "Past Inspections");
     setCentralWidget(tab_widget);
 
     //Crawler Dock
@@ -98,7 +97,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     // Satus Bar
     m_statusbar = new StatusBar();
     setStatusBar(m_statusbar);
-    m_statusbar->showMessage("Welcome to the FIU-WRPS Lateral Gamma Scanners");
+    m_statusbar->showMessage("Welcome to the FIU-WRPS Lateral Gamma Scanner");
 
     // Connections
     connect(b_record, SIGNAL(clicked()), this, SLOT(startRecording()));
@@ -127,7 +126,7 @@ void MainWindow::startRecording(){
 
 void MainWindow::playVideos(QListWidgetItem * video){
     auto video_loc = video->text();
-    m_player->update(video_loc);
+    // m_player->update(video_loc);
     // m_player_2->update(video_loc);
 }
 
