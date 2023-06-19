@@ -25,7 +25,8 @@ public:
     void spinOnBackground(void);
     void shutdown(void);
     rclcpp::Node::SharedPtr node(void) { return m_node; }
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher(void) {return m_publisher;};
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr actuation_publisher(void) {return m_actuation_pub;};
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr override_publisher(void) {return m_override_pub;};
     void startRecording(std::string filename);
     void stopRecording(void);
 public slots:
@@ -33,7 +34,6 @@ protected:
     void reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg) ;
     void frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg) const;
     void stateCallback(const std_msgs::msg::String::SharedPtr new_state) ;
-    // void btCallback(const std_msgs::msg::String::SharedPtr new_state) ;
 private:
     rclcpp::executors::StaticSingleThreadedExecutor::SharedPtr m_executor;
     rclcpp::Node::SharedPtr m_node;
@@ -41,7 +41,8 @@ private:
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr m_reel_im;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr m_state_update;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr m_bt_update;
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_publisher;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_actuation_pub;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_override_pub;
     inline static std::list<IWatcher *> m_watchers; // inline defines it here:
     static Ros *s_self;
     bool m_recording;

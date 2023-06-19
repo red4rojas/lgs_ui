@@ -21,13 +21,14 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # find dependencies
-find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Multimedia MultimediaWidgets Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Multimedia MultimediaWidgets Widgets)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
+
 find_package(lgs_interfaces REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
@@ -44,7 +45,7 @@ set(PROJECT_SOURCES
 
 add_executable(user_interface ${PROJECT_SOURCES})
 
-
+include_directories(${OpenCV_INCLUDE_DIRS}) # not needed for opencv>=4.0
 target_include_directories(user_interface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
@@ -53,7 +54,6 @@ target_compile_features(user_interface PUBLIC c_std_99 cxx_std_17)
 target_link_libraries(user_interface PUBLIC
   Qt::Core
   Qt::Widgets
-  Qt::MultimediaWidgets
 )
 
 ament_target_dependencies(user_interface PUBLIC 

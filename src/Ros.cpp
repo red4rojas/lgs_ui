@@ -3,6 +3,8 @@
 #include <signal.h>
 #include "MainWindow.h"
 #include <cv_bridge/cv_bridge.h>
+#include "opencv2/videoio.hpp"
+
 
 void kill(int /*sig*/) {
     MainWindow::instance()->close();
@@ -38,7 +40,8 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_bt_update = m_node->create_subscription<std_msgs::msg::String>("bt_status",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::stateCallback, this, std::placeholders::_1));
-    m_publisher = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
+    m_actuation_pub = m_node->create_publisher<std_msgs::msg::String>("lgs_actuation_requests", 10);
+    m_override_pub = m_node->create_publisher<std_msgs::msg::String>("ui_override_requests", 10);
     // m_writer_1 = cv::VideoWriter("/home/josue/test.mp4", cv::VideoWriter::fourcc('m', 'p', 'e','g'), 30, cv::Size(320,240), true);
     m_recording = false;
     signal(SIGINT, kill);

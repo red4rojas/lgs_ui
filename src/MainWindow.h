@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "components/ImageView.h"
+#include "components/ModuleButton.h"
 #include "components/StatusBar.h"
 #include <QListWidget>
 #include <QPushButton>
@@ -19,6 +20,7 @@ public:
 private slots:
     void startRecording();
     void stopRecording();
+    void overrideBT();
     QString fileName();
     void findVideos();
     void playVideos(QListWidgetItem * video);
@@ -33,6 +35,7 @@ private:
     QPushButton * b_capture;
     QPushButton * b_record;
     QPushButton * b_stop;
+    ModuleButton *b_override;
 };
 
 #endif // MAINWINDOW_H

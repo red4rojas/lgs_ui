@@ -6,12 +6,12 @@
 // Icon PNG files should be named like the command string of their button
 // my_command.PNG
 
-ModuleButton::ModuleButton(std::string on_cmd, std::string off_cmd, QWidget *parent):
+ModuleButton::ModuleButton(rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher, std::string on_cmd, std::string off_cmd, QWidget *parent):
     QPushButton(parent),
     on_cmd_(on_cmd),
     off_cmd_(off_cmd){
     engaged_ = false;
-    publisher_ = Ros::instance()->publisher();
+    publisher_ = publisher;
     connect(this, SIGNAL(clicked()), this, SLOT(PressButton()));
     Ros::instance()->addWatcher(this);
     SetIcons();

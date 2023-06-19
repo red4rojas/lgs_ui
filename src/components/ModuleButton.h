@@ -12,20 +12,20 @@ class ModuleButton : public QPushButton, public IWatcher{
     Q_OBJECT
 
 public:
-    ModuleButton(std::string on, std::string off, QWidget *parent = nullptr);
+    ModuleButton(rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher, std::string on, std::string off, QWidget *parent = nullptr);
     ~ModuleButton();
     void SetIcons();
+    std::string GetCommand();
 
 public slots:
     void PressButton();
+    void ReverseState();
 private slots:
 protected:
 private:
     void Update(const std::string signal) override;
-    void ReverseState();
     void PublishCommand();
     void PaintIcon();
-    std::string GetCommand();
 private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
     QIcon standby_icon_;
