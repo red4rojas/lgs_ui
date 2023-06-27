@@ -20,11 +20,11 @@ public:
 public slots:
     void PressButton();
     void ReverseState();
+    void PublishCommand();
 private slots:
 protected:
 private:
     void Update(const std::string signal) override;
-    void PublishCommand();
     void PaintIcon();
 private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;

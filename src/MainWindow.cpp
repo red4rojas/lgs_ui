@@ -61,19 +61,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     current_inspection_tab->setLayout(current_inspection_layout);
 
     // // Past Inspections tab
-    // m_player = new MediaView;
+    m_player = new MediaView;
     video_list = new QListWidget();
     video_list->setMaximumWidth(200);
-    // auto past_inspection_tab = new QWidget();
-    // auto past_inspections_layout = new QHBoxLayout();
-    // past_inspections_layout->addWidget(m_player);
-    // past_inspections_layout->addWidget(video_list);
-    // past_inspection_tab->setLayout(past_inspections_layout);
+    auto past_inspection_tab = new QWidget();
+    auto past_inspections_layout = new QHBoxLayout();
+    past_inspections_layout->addWidget(m_player);
+    past_inspections_layout->addWidget(video_list);
+    past_inspection_tab->setLayout(past_inspections_layout);
 
     //Central Widget
     auto tab_widget = new QTabWidget;
     tab_widget->insertTab(0, current_inspection_tab, "Current Inspection");
-    // tab_widget->insertTab(1, past_inspection_tab, "Past Inspections");
+    tab_widget->insertTab(1, past_inspection_tab, "Past Inspections");
     setCentralWidget(tab_widget);
     // // Crawler Dock
     auto front_grip = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("front_grip_on"), std::string("front_grip_off"));
@@ -81,13 +81,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     auto extenders = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("extender_on"), std::string("extender_off"));
     auto forward = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("forward"), std::string("stop"));
     auto backward = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("backward"), std::string("stop"));
+    auto pull = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("pull_tether"), std::string("stop"));
+    auto unwind = new ModuleButton(Ros::instance()->actuation_publisher(), std::string("unwind_tether"), std::string("stop"));
     auto crawler_dock = new QDockWidget(tr("Crawler Override Controls"),this);
     auto crawler_layout = new QHBoxLayout();
+    crawler_layout->addWidget(pull);
     crawler_layout->addWidget(backward);
     crawler_layout->addWidget(back_grip);
     crawler_layout->addWidget(extenders);
     crawler_layout->addWidget(front_grip);
     crawler_layout->addWidget(forward);
+    crawler_layout->addWidget(unwind);
     auto crawler_panel = new QWidget();
     crawler_panel->setLayout(crawler_layout);
     crawler_dock->setWidget(crawler_panel);
@@ -137,6 +141,7 @@ void MainWindow::stopRecording(){
 
 void MainWindow::overrideBT(){
     if (b_override->GetCommand() == "STOP_BT"){
+        b_override->PublishCommand();
         b_override->ReverseState();
     }
 }
