@@ -10,6 +10,7 @@
 #include <QLabel>
 #include <QDateTime>
 #include <QTabWidget>
+#include "components/MediaView.h"
 
 MainWindow *MainWindow::s_self = nullptr;
 
