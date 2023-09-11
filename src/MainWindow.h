@@ -5,6 +5,8 @@
 #include "components/ImageView.h"
 #include "components/ModuleButton.h"
 #include "components/StatusBar.h"
+#include "components/MediaView.h"
+
 #include <QListWidget>
 #include <QPushButton>
 
@@ -36,6 +38,7 @@ private:
     QPushButton * b_record;
     QPushButton * b_stop;
     ModuleButton *b_override;
+    MediaView * m_player;
 };
 
 #endif // MAINWINDOW_H

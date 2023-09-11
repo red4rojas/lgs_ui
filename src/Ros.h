@@ -32,7 +32,7 @@ public:
 public slots:
 protected:
     void reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg) ;
-    void frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg) const;
+    void frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg) ;
     void stateCallback(const std_msgs::msg::String::SharedPtr new_state) ;
 private:
     rclcpp::executors::StaticSingleThreadedExecutor::SharedPtr m_executor;

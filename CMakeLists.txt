@@ -21,8 +21,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # find dependencies
-find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core MultimediaWidgets Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core MultimediaWidgets  Widgets)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
@@ -54,6 +54,7 @@ target_compile_features(user_interface PUBLIC c_std_99 cxx_std_17)
 target_link_libraries(user_interface PUBLIC
   Qt::Core
   Qt::Widgets
+  Qt::MultimediaWidgets
 )
 
 ament_target_dependencies(user_interface PUBLIC 

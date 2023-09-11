@@ -85,7 +85,7 @@ void Ros::stopRecording(void){
 void Ros::reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg)  { 
     // LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
     cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
-    if (m_recording) m_writer_1.write(image_in);
+    // if (m_recording) m_writer_1.write(image_in);
     if (msg->encoding != "rgb8") {
         // LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
         cv::cvtColor(image_in, image_in, cv::COLOR_BGR2RGB);
@@ -102,9 +102,10 @@ void Ros::reelImageCall(const sensor_msgs::msg::Image::SharedPtr msg)  {
     }
 }
 
-void Ros::frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg2) const { 
+void Ros::frontImageCall(const sensor_msgs::msg::Image::SharedPtr msg2) { 
     // LOG("Received Image2: %s %dx%d", msg2->encoding.c_str(), msg2->width, msg2->height);
     cv::Mat image_in2 = cv_bridge::toCvShare(msg2, "bgr8")->image;
+    if (m_recording) m_writer_1.write(image_in2);
     if (msg2->encoding != "rgb8") {
         // LOG("converting from: %s to %s", msg2->encoding.c_str(), "rgb8");
         cv::cvtColor(image_in2, image_in2, cv::COLOR_BGR2RGB);
@@ -133,5 +134,6 @@ void Ros::stateCallback(const std_msgs::msg::String::SharedPtr new_state) {
 void Ros::publishCommand(std::string command){
   auto message = std_msgs::msg::String();
   message.data = command;
+  m_actuation_pub->publish(message);
   LOG("Publishing Request: %s", command.c_str());
 }

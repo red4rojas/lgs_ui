@@ -10,7 +10,6 @@
 #include <QLabel>
 #include <QDateTime>
 #include <QTabWidget>
-#include "components/MediaView.h"
 
 MainWindow *MainWindow::s_self = nullptr;
 
@@ -142,6 +141,7 @@ void MainWindow::stopRecording(){
 
 void MainWindow::overrideBT(){
     if (b_override->GetCommand() == "STOP_BT"){
+        Ros::instance()->publishCommand("stop");
         b_override->PublishCommand();
         b_override->ReverseState();
     }
@@ -149,7 +149,7 @@ void MainWindow::overrideBT(){
 
 void MainWindow::playVideos(QListWidgetItem * video){
     auto video_loc = video->text();
-    // m_player->update(video_loc);
+    m_player->update(video_loc);
     // m_player_2->update(video_loc);
 }
 
