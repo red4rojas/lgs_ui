@@ -4,7 +4,7 @@
 #include <QObject>
 #include <memory>
 #include <opencv2/videoio.hpp>
-#include "lgs_interfaces/msg/crawlerstate.hpp"
+// #include "lgs_interfaces/msg/crawlerstate.hpp"
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <std_msgs/msg/string.hpp>

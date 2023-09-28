@@ -6,7 +6,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(QT6 /home/robotics/Qt/5.0.0)
+set(QT6 /home/robotics/Qt/6.5.3)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_DIR ${QT6}/gcc_64/lib/cmake/Qt6)
@@ -28,7 +28,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
-find_package(lgs_interfaces REQUIRED)
+#find_package(lgs_interfaces REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 set(PROJECT_SOURCES
@@ -43,7 +43,6 @@ set(PROJECT_SOURCES
 )
 
 add_executable(user_interface ${PROJECT_SOURCES})
-
 
 target_include_directories(user_interface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -62,7 +61,7 @@ ament_target_dependencies(user_interface PUBLIC
   std_msgs
   sensor_msgs
   cv_bridge
-  lgs_interfaces
+  # lgs_interfaces
 )
 
 
