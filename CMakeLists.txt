@@ -6,7 +6,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(QT6 /home/josue/Qt/6.4.0)
+set(QT6 /home/robotics/Qt/5.0.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_DIR ${QT6}/gcc_64/lib/cmake/Qt6)
